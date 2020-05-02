@@ -4,46 +4,75 @@
         <title>Login and Registration Form Design</title>
         <link rel="stylesheet" href="style.css">
     </head>
+    <div class="header">        
+        <h1>E-Healthcare</h1>
+        <h4>Better health</h4>
+    </div>
     <body>
         <div class="login-page">
-
-		
-            <div class="form">
-		
-                <form class="register-form">
-
-	
-			<i class = "fa fa-user" ></i>
-                    <input type="text" placeholder="user name">
-			 <i class="fa fa-lock"></i>
-                    <input type="text" placeholder="password">
-			<i class="fa fa-envelope"></i>
-                    <input type="text" placeholder="email">
-                    <button>Create</button>
-                    <p class="message">Already Registered? 
-                        <a href="#">Login</a>                   
-                    </p>                   
-                </form>
-
-                <form class="login-form">
-		    <i class = "fa fa-user" ></i>	
-                    <input type="text" placeholder="user name"/>
-		    <i class="fa fa-lock"></i>	
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
-                    <p class="message">
-                        Not registered
-                        <a href="#">Register</a>                        
-                    </p>
-                </form>
-	
+            <div class="form-box" id="form-box">
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                </div>
+                <div class="form">
+                    <!-- <form class="register-form">
+                        <i class = "fa fa-user" ></i>
+                            <input type="text" placeholder="user name">
+                        <i class="fa fa-lock"></i>
+                            <input type="text" placeholder="password">
+                        <i class="fa fa-envelope"></i>
+                            <input type="text" placeholder="email">
+                            <button>Create</button>
+                            <p class="message">Already Registered? 
+                                <a href="#">Login</a>                   
+                            </p>                   
+                    </form> -->
+                    <form id="login" class="input-group">
+                        <i class = "fa fa-user" ></i>	
+                        <input type="text" class="input-field" placeholder="username"/>
+                        <i class="fa fa-lock"></i>	
+                        <input type="password" class="input-field" placeholder="password"/>
+                        <div class="checkbox-container">
+                        <span>Save password?</span><input type="checkbox" id="check" class="checkmark">
+                        </div>
+                        <button type="submit" class="submit-btn">Login</button>                        
+                    </form>
+                    <form id="register" class="input-group">
+                        <p>Are you a Doctor or patient?</p>
+                        <button type="button" class="user-btn">Patient</button>
+                        <button type="button" class="user-btn">Doctor</button>
+                        <input type="text" class="input-field" placeholder="username"/>
+                        <input type="password" class="input-field" placeholder="password"/>
+                        <input type="password" class="input-field" placeholder="confirm password"/>
+                        <input type="text" class="input-field" placeholder="location"/>
+                    </form>
+                </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <div class="footer">
+            <footer>
+                This is just chillin here as a placeholder footer
+            </footer>
+        </div>
         <script>
-            $('.message a').click(function(){
-                $('form').animate({height: "toggle", opcatity: "toggle"}, "slow")
-            })
+            var loginForm = document.getElementById("login");
+            var regForm = document.getElementById("register");
+            var btnToggle = document.getElementById("btn");
+            var formBox = document.getElementById("form-box");
+            function register(){
+                loginForm.style.left="-400px"
+                regForm.style.left="50px"
+                btnToggle.style.left="96px"
+                formBox.setAttribute("style","height:500px")
+            }
+            function login(){
+                loginForm.style.left="50px"
+                regForm.style.left="500px"
+                btnToggle.style.left="0px"
+                formBox.setAttribute("style","height:400px");
+            }
         </script>
     </body>
 </html>

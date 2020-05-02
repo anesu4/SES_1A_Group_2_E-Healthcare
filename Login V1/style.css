@@ -1,23 +1,30 @@
 
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-
-body{
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(background1.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    display: block;
+    background-color: white;
+}
+.header h1{
+    padding-top: 5px;
+    padding-left: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.login-page{
-    width: 360px;
-    padding: 10% 0 0;
-    margin: auto;
+.header h4{
+    padding-left: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 .Droplist{
-  font-size: 13px;
-font-family: "Roboto", "sans-serif";
+    font-size: 13px;
+    font-family: "Roboto", "sans-serif";
     outline: 1;
     background: #f2f2f2;
     width: 100%;
@@ -44,63 +51,138 @@ font-family: "Roboto", "sans-serif";
   font-size: 1em;
 }
 
+.login-page{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(background1.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
 
+.form-box{
+    width: 380px;
+    height: 400px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    padding: 5px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5); 
+    overflow: hidden;
+    transition: .5s;
+}
+
+.button-box{
+    width: 200px;
+    margin: 20px auto;
+    position: relative;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #04cc0b;
+    border-width: 1px;
+} 
+
+.toggle-btn{
+    width: 95px;
+    padding: 10px 28px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px;
+    outline: none;
+    position: relative;
+    color: black;
+}
+
+#btn{
+    margin: 2px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100px;
+    height: 90%;
+    background: #04cc0b;
+    border-radius: 30px;
+    transition: .5s;
+}   
 
 .form{
-    position: relative;
-    z-index: 1;
-    background: white;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
     text-align: center;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
-.form input{
-    font-family: "Roboto", "sans-serif";
+
+#login{
+    left:50px
+}
+
+#register{
+    left: 450px;
+}
+
+.input-field{
+    font-family: sans-serif;
     outline: none;
     background: none;
-    width: 100%;
+    width: 91%;
     border: none;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    overflow:hidden;
-    border-bottom: 1px solid #4CAF50;;
+    overflow: hidden;
+    border-bottom: 1px solid #04cc0b;
 }
 
+.checkbox-container{
+    margin-bottom: 15px;
+}
 
+.checkmark{
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    margin: 0px 20px;
+}
 
-.form button{
-    font-family: "Roboto", "sans-serif";
-    text-transform: uppercase;
-    outline: 0;
-    background: #4CAF50;
-    width: 100%;
+.submit-btn{
+    background: #04cc0b;
+    width: 100px;
+    height: 40px;
     border: 0;
-    padding: 15px;
     color: #ffffff;
-    font-size: 14px;
     cursor: pointer;
+    border-radius: 30px;
+}
+
+#register button {
+    width: 50%;
+    margin-top: 15px;
 }
 
 .form button:hover,.form button:active{
-    background: rgb(52, 131, 56);
+    background: rgb(61, 153, 65);
 }
 
-.form .message{
-    margin: 15px 0 0;
-    color: black;
-    font-size: 12px;
+.input-group{
+    top: 90px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
 }
 
-.form .message a{
-    color: #4CAF50;
-    text-decoration: none;
+.user-btn{
+    height: 25px;
+    max-width: 100px;
+    border-radius: 30px;
+    border: 0;
+    margin: 10px;
 }
 
-.form .register-form{
-    display: none;
-}
-
+/* .footer{
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    text-align: center;
+} */
