@@ -62,7 +62,7 @@
 
 .form-box{
     width: 380px;
-    height: 400px;
+    height: 300px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -83,12 +83,35 @@
     border-width: 1px;
 } 
 
+.button-box2{
+    width: 200px;
+    height: 37px;
+    margin: 20px 42px;
+    position: relative;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #04cc0b;
+    border-width: 1px;
+} 
+
 .toggle-btn{
     width: 95px;
     padding: 10px 28px;
     cursor: pointer;
     background: transparent;
     border: 1px;
+    outline: none;
+    position: relative;
+    color: black;
+}
+
+.toggle-btn2{
+    max-width: 95px;
+    padding: 10px 28px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px;
+    margin: 0px;
     outline: none;
     position: relative;
     color: black;
@@ -104,7 +127,19 @@
     background: #04cc0b;
     border-radius: 30px;
     transition: .5s;
-}   
+}
+
+#btn2{
+    margin: 2px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100px;
+    height: 90%;
+    background: #04cc0b;
+    border-radius: 30px;
+    transition: .5s;
+}
 
 .form{
     text-align: center;
@@ -132,17 +167,6 @@
     border-bottom: 1px solid #04cc0b;
 }
 
-.checkbox-container{
-    margin-bottom: 15px;
-}
-
-.checkmark{
-    width: 12px;
-    height: 12px;
-    background-color: #ddd;
-    margin: 0px 20px;
-}
-
 .submit-btn{
     background: #04cc0b;
     width: 100px;
@@ -151,14 +175,14 @@
     color: #ffffff;
     cursor: pointer;
     border-radius: 30px;
+    margin: 20px;
 }
 
 #register button {
     width: 50%;
-    margin-top: 15px;
 }
 
-.form button:hover,.form button:active{
+.form .submit-btn:hover,.form .submit-btn:active{
     background: rgb(61, 153, 65);
 }
 
@@ -175,6 +199,23 @@
     border-radius: 30px;
     border: 0;
     margin: 10px;
+}
+
+#search-location{
+    display: none;
+}
+
+#certFile-container{
+    display: none;
+    padding-top: 0px;
+}
+
+#certFile{
+    margin-top: 10px;
+}
+
+#register .submit-btn{
+    margin: 15px;
 }
 
 /* .footer{
