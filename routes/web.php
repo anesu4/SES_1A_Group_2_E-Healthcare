@@ -27,9 +27,13 @@ Route::get('/register/{pid?}', 'auth\RegisterController@index')->name('register'
 Route::post('/register/{pid?}', 'auth\RegisterController@register')->name('register');
 
 //Error Page
-Route::any('{all}', function(){
-    return view('errors.404');
-});
+// Route::any('{all}', function(){
+//     return view('errors.404');
+// });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
