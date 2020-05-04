@@ -1,12 +1,12 @@
-@include('layouts/header')
+<?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <title>Login and Registration Form Design</title>
         <link rel="stylesheet" href="assets/style.css"/>
-        <link href="{{ asset('css/bootstrap.min.css') }}"/>
-        <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/>
+        <link href="<?php echo e(asset('css/bootstrap.min.css')); ?>"/>
+        <link href=" <?php echo e(asset('plugins/font-awesome/font-awesome.min.css')); ?>"/>
         <link href=" {{ asset('img/background1.jpg')"/>
     </head>
     <div class="header">
@@ -172,3 +172,4 @@
         </script>
     </body>
 </html>
+<?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/index.blade.php ENDPATH**/ ?>

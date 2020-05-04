@@ -30,3 +30,15 @@ Route::post('/register/{pid?}', 'auth\RegisterController@register')->name('regis
 Route::any('{all}', function(){
     return view('errors.404');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

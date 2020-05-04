@@ -36,27 +36,9 @@ class RegisterController extends Controller
      *
      * @return void
      */
-<<<<<<< Updated upstream
-    public function __construct() {
-
-    }
-
-    protected function validator(array $data) {
-        return Validator::make($data, [
-                    'first_name' => 'required|string|max:255',
-                    'last_name' => 'required|string|max:255',
-                    'email' => 'required|string|email|max:255',
-                    'mobile' => 'required|min:8',
-//                    'lat' => 'required',
-//                    'long' => 'required',
-                    // 'password' => 'required|string|min:6|confirmed',
-                    'password' => 'required|string|min:6',
-        ]);
-=======
     public function __construct()
     {
         $this->middleware('guest');
->>>>>>> Stashed changes
     }
 
     /**
