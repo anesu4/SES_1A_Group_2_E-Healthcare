@@ -1,4 +1,5 @@
 @include('layouts/header')
+@extends('layouts.app')
 
 <!DOCTYPE html>
 <html>
@@ -7,10 +8,10 @@
         <link rel="stylesheet" href="assets/style.css"/>
         <link href="{{ asset('css/bootstrap.min.css') }}"/>
         <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/>
-        <link href=" {{ asset('img/background1.jpg')"/>
+        <link href=" {{ asset('img/background1.jpg') }}"/>
     </head>
     <div class="header">
-        <!--placeholder header-->        
+        <!--placeholder header-->
         <h1>E-Healthcare</h1>
         <h4>Better health</h4>
     </div>
@@ -24,11 +25,11 @@
                 </div>
                 <div class="form">
                     <form id="login" class="input-group">
-                        <i class = "fa fa-user" ></i>	
-                        <input type="text" class="input-field" id="email" placeholder="Email"/>
-                        <i class="fa fa-lock"></i>	
+                        <i class = "fa fa-user" ></i>
+                        <input type="text" class="input-field" id="email" placeholder="Email">{{ __('Login') }}</input>
+                        <i class="fa fa-lock"></i>
                         <input type="password" class="input-field" id="password" placeholder="Password"/>
-                        <button type="submit" class="submit-btn" >Login</button>                        
+                        <button type="submit" class="submit-btn" >Login</button>
                     </form>
                     <form id="register" class="input-group">
                         <p>Are you a doctor or patient?</p>
@@ -66,7 +67,7 @@
             var toggleBtn2 = document.getElementById("btn2");
             var certFileIF = document.getElementById("certFile-container");
             var locationIF = document.getElementById("search-location");
-            
+
             //boolean checks if doctor form is selected, false by default becacuse patient is selected
             var doctorForm = false;
 
@@ -98,9 +99,9 @@
                 certFileIF.setAttribute("style","display:none");
                 formBox.setAttribute("style","height:450px");
                 doctorForm = false;
-            }       
+            }
             function doctor(){
-                
+
                 //toggle btn to highlight doctor
                 toggleBtn2.style.left="96px"
 
@@ -162,7 +163,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Sign in</button>
         </form> -->
-        
+
         <script src="https://code.jquery.com/jquery-3.2.1.min.js">
         </script>
         <script>

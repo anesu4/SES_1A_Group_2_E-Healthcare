@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'mobile', 'dateofbirth', 'address'];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -42,16 +42,15 @@ class User extends Authenticatable
      */
     protected $table = 'user';
 
-    public static $rules = [
-        'first_name' => 'required|string|max:255',
-        'last_name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255',
-        'mobile' => 'required',
-        'dateofbirth' => 'required',
-        'address' => 'required',
-        'password' => 'required|string|min:6|confirmed',
-        'email' => 'empty_with',
-   ];
+//     public static $rules = [
+//         'name' => 'required|string|max:255',
+//         'email' => 'required|string|email|max:255',
+//         'mobile' => 'required',
+//         'dateofbirth' => 'required',
+//         'address' => 'required',
+//         'password' => 'required|string|min:6|confirmed',
+//         'email' => 'empty_with',
+//    ];
 
     public static function getUserDetail($userID)
     {
