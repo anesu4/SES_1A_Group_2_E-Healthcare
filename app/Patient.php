@@ -3,10 +3,10 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Patient as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Patient extends Authenticatable
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -40,7 +40,7 @@ class Patient extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'patient';
+    protected $table = 'user';
 
     public static $rules = [
         'first_name' => 'required|string|max:255',

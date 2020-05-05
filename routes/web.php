@@ -19,14 +19,17 @@ Route::get('/', function () {
 });
 
 //User Authentication
-Route::get('/login', 'auth\LoginController@index')->name('login');
-Route::post('/login', 'auth\LoginController@login')->name('login');
-Route::get('/logout', 'auth\LoginController@logout')->name('logout');
-Route::post('/logout', 'auth\LoginController@logout')->name('logout');
-Route::get('/register/{pid?}', 'auth\RegisterController@index')->name('register');
-Route::post('/register/{pid?}', 'auth\RegisterController@register')->name('register');
+// Route::get('/login', 'auth\LoginController@index')->name('login');
+// Route::post('/login', 'auth\LoginController@login')->name('login');
+// Route::get('/logout', 'auth\LoginController@logout')->name('logout');
+// Route::post('/logout', 'auth\LoginController@logout')->name('logout');
+// Route::get('/register/{pid?}', 'auth\RegisterController@index')->name('register');
+// Route::post('/register/{pid?}', 'auth\RegisterController@register')->name('register');
 
 //Error Page
-Route::any('{all}', function(){
-    return view('errors.404');
-});
+// Route::any('{all}', function(){
+//     return view('errors.404');
+// });
+
+Auth::routes();
+Route::get('/dashboard', 'DashboardController@index');
