@@ -123,14 +123,8 @@ unset($__errorArgs, $__bag); ?>
                     <button type="button" class="toggle-btn" onclick="login()"><?php echo e(__('Login')); ?> Bitches</button>
                     <button type="button" class="toggle-btn" onclick="register()"><?php echo e(__('Register')); ?></button>
                 </div>
-                <form id="login" class="input-group"  method="POST" action="<?php echo e(route('login')); ?>">
-                    <i class = "fa fa-user" ></i>
-                    <input type="text" class="input-field" id="email" placeholder="Email"/>
-                    <i class="fa fa-lock"></i>
-                    <input type="password" class="input-field" id="password" placeholder="Password"/>
-                    <button type="submit" class="submit-btn" ><?php echo e(__('Login')); ?></button>
-                </form>
-                <div class="form input-group">
+                
+                <div>
                     <form id="login" class="input-group" method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>
                                 <i class = "fa fa-user" ></i>
@@ -156,10 +150,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Password')); ?></label>
-
-                            <div class="col-md-6">
+                            <i class="fa fa-lock"></i>
                                 <input id="password" type="password" class="form-control <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -167,8 +158,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password" required autocomplete="current-password">
-
+unset($__errorArgs, $__bag); ?> input-field" name="password" required autocomplete="current-password" placeholder="Password">
                                 <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -181,8 +171,6 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

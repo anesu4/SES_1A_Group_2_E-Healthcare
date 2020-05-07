@@ -94,14 +94,14 @@
                     <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }} Bitches</button>
                     <button type="button" class="toggle-btn" onclick="register()">{{ __('Register') }}</button>
                 </div>
-                <form id="login" class="input-group"  method="POST" action="{{ route('login') }}">
+                {{-- <form id="login" class="input-group"  method="POST" action="{{ route('login') }}">
                     <i class = "fa fa-user" ></i>
                     <input type="text" class="input-field" id="email" placeholder="Email"/>
                     <i class="fa fa-lock"></i>
                     <input type="password" class="input-field" id="password" placeholder="Password"/>
                     <button type="submit" class="submit-btn" >{{ __('Login') }}</button>
-                </form>
-                <div class="form input-group">
+                </form> --}}
+                <div>
                     <form id="login" class="input-group" method="POST" action="{{ route('login') }}">
                         @csrf
                                 <i class = "fa fa-user" ></i>
@@ -113,19 +113,13 @@
                                     </span>
                                 @enderror
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                            <i class="fa fa-lock"></i>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input-field" name="password" required autocomplete="current-password" placeholder="Password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
