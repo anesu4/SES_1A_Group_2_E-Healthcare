@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Index Home Page
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 //User Authentication
 // Route::get('/login', 'auth\LoginController@index')->name('login');
