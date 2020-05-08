@@ -12,44 +12,48 @@
         <title>Account</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <div class="row">
-        <div class="sidebar">
-            <a href="#Home">Home</a>
-            <a href="">Appointments</a>
-            <a href="">Messaging</a>
-            <a href="">Patient Forms</a>
-            <a href="">Account Settings</a>
-
-        </div>
-        <div class="content">
-            <div class="user-header"></div>
-            <div class="user-home">
-                <div class="hero-image"></div>
-                <div class="row">
-                    <div class="user-dashboard">
-                        <h2>Welcome User</h2>
-                        <div class="column">
-                            <h3>Find Doctors</h3>
-                            <div id="maps"></div>
-                            <form action="">
-                                <input type="text" class="maps-search" placeholder="Email"/>
-                            </form>
-                        </div>
-                        <div class="column">
-                            <h3>Added Doctors</h3>
-                            <div class="doctor-list">
-                                <div class="doctor-obj">
-                                <p><a href="" ><h6>Dr. Exmample Name</h6></a>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                                </div>
-                                <div class="doctor-obj">
-                                <p><a href="" ><h6>Dr. Exmample Name</h6></a>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                                </div>
-                                <div class="doctor-obj">
-                                    <p><a href=""><h6>Dr. Exmample Name</h6></a>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                                </div>
+    <div class="content">
+        <div class="hero-image"></div>
+        <div class="user-home">
+            <div class="navbar">
+                <a href="#Home">Home</a>
+                <a href="">Appointments</a>
+                <a href="">Messaging</a>
+                <div class="dropdown">
+                    <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="">Patient Forms</a>
+                        <a href="">Settings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="user-name">
+                    <h3>Welcome User</h3></div>
+                <div class="column">
+                    <div class="container">
+                        <h3>Find Doctors</h3>
+                        <div id="maps"></div>
+                        <form action="">
+                            <input type="text" class="maps-search" placeholder="search"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="container">
+                        <h3>Added Doctors</h3>
+                        <div class="doctor-list">
+                            <div class="doctor-obj">
+                            <p><a href="" ><h6>Dr. Exmample Name</h6></a>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
+                            </div>
+                            <div class="doctor-obj">
+                            <p><a href="" ><h6>Dr. Exmample Name</h6></a>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
+                            </div>
+                            <div class="doctor-obj">
+                                <p><a href=""><h6>Dr. Exmample Name</h6></a>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
                             </div>
                         </div>
                     </div>
@@ -58,3 +62,8 @@
         </div>
     </div>
 </body>
+
+<!-- 
+1. menu shift to top
+2. drop down menu
+3. patient forms under Account settings 
