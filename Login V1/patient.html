@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <body>
     <head>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&callback=initMap"></script>
         <!-- PLUGINS CSS STYLE -->
         <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
@@ -62,3 +63,18 @@
         </div>
     </div>
 </body>
+
+<script>
+    function initMap() {
+	    var location =	{lat: -33.868820, lng: 151.209290};
+        var map = new google.maps.Map(document.getElementById('maps'), {
+        zoom: 12,  
+        center: location
+        });
+
+	    var marker = new google.maps.Marker({
+		position: location,
+		map: map
+        });
+    }
+</script>
