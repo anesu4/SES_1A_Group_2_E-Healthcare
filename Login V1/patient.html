@@ -23,7 +23,7 @@
                 <div class="dropdown">
                     <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
                     <div class="dropdown-content">
-                        <a href="">Patient Forms</a>
+                        <a href="patient-form.html">Patient Forms</a>
                         <a href="">Settings</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <h3>Find Doctors</h3>
                         <div id="maps"></div>
                         <form action="">
-                            <input type="text" class="maps-search" placeholder="search"/>
+                            <input type="text" class="maps-search" id="search" placeholder="search"/>
                         </form>
                     </div>
                 </div>
@@ -63,7 +63,6 @@
         </div>
     </div>
 </body>
-
 <script>
     function initMap() {
 	    var location =	{lat: -33.868820, lng: 151.209290};
