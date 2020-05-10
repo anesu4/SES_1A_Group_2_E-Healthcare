@@ -356,8 +356,8 @@
     box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
 }
 
-p{
-    font-size: 9px;
+.doctor-obj p{
+    font-size: 10px;
     word-break: break-all;
     text-decoration: none;
     word-wrap: break-word;
