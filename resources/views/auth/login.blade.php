@@ -91,7 +91,7 @@
             <div class="form-box" id="form-box">
                 <div class="button-box">
                     <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }} Bitches</button>
+                    <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }}</button>
                     <button type="button" class="toggle-btn" onclick="register()">{{ __('Register') }}</button>
                 </div>
                 {{-- <form id="login" class="input-group"  method="POST" action="{{ route('login') }}">
@@ -121,50 +121,62 @@
                                     </span>
                                 @enderror
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="submit-btn">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
                     </form>
 
 
-                    <form id="register" class="input-group">
+                    <form id="register" class="input-group" method="POST" action="{{ route('register') }}">
+                        @csrf
                         <p>Are you a doctor or patient?</p>
                         <div class="button-box2">
                             <div id="btn2"></div>
                             <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
                             <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
                         </div>
-                        <input type="text" class="input-field" placeholder="Email"/>
-                        <input type="password" class="input-field" placeholder="Password"/>
-                        <input type="password" class="input-field" placeholder="Confirm password"/>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        {{-- <input type="text" class="input-field" placeholder="Email"/> --}}
+                        <input id="email" type="email" class="input-field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <input id="password password-confirm" type="password" class="input-field @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password"/>
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        {{-- <input type="password" class="input-field" placeholder="Password"/> --}}
+                        <input id="password-confirm" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
+                        {{-- <input type="password" class="input-field" placeholder="Confirm password"/> --}}
                         <input type="text" class="input-field" id="search-location" placeholder="Enter your location"/>
                         <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
                             <p>Upload doctor certification</p>
                             <input type="file" id="certFile">
                         </div>
-                        <button type="submit" class="submit-btn">Register</button>
+                        <button type="submit" class="submit-btn">
+                            {{ __('Register') }}
+                        </button>
                     </form>
                 </div>
             </div>

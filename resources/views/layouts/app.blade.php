@@ -30,7 +30,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }} Bitches</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -94,7 +94,7 @@
                 <div class="hero-image"></div>
                 <div class="row">
                     <div class="user-dashboard">
-                        <h2>Welcome {{Auth::User()->name}}!</h2>
+                        <h2>Welcome !</h2>
                         <div class="column">
                             <h3>Find Doctors</h3>
                             <div id="maps"></div>
