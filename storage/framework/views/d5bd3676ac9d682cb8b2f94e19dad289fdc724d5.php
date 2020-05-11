@@ -44,7 +44,7 @@
                                     <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div >
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -69,4 +69,63 @@
     </div>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<body>
+    <head>
+        <!-- Login and Registration Form Title and CSS -->
+        <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
+        <title>Account</title>
+        <link rel="stylesheet" href="assets/style.css">
+    </head>
+
+
+    <div class="row">
+        <div class="sidebar">
+            <a href="#Home">Home</a>
+            <a href="">Appointments</a>
+            <a href="">Messaging</a>
+            <a href="">Patient Forms</a>
+            <a href="">Account Settings</a>
+
+        </div>
+        <div class="content">
+            <div class="user-header"></div>
+            <div class="user-home">
+                <div class="hero-image"></div>
+                <div class="row">
+                    <div class="user-dashboard">
+                        <h2>Welcome <?php echo e(Auth::User()->name); ?>!</h2>
+                        <div class="column">
+                            <h3>Find Doctors</h3>
+                            <div id="maps"></div>
+                            <form action="">
+                                <input type="text" class="maps-search" placeholder="Email"/>
+                            </form>
+                        </div>
+                        <div class="column">
+                            <h3>Added Doctors</h3>
+                            <div class="doctor-list">
+                                <div class="doctor-obj">
+                                <p><a href="" ><h6>Dr. Exmample Name</h6></a>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
+                                </div>
+                                <div class="doctor-obj">
+                                <p><a href="" ><h6>Dr. Exmample Name</h6></a>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
+                                </div>
+                                <div class="doctor-obj">
+                                    <p><a href=""><h6>Dr. Exmample Name</h6></a>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 <?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/layouts/app.blade.php ENDPATH**/ ?>
