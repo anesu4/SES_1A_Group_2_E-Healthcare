@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <body>
     <head>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&callback=initMap"></script>
+        <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
         <!-- PLUGINS CSS STYLE -->
         <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
         <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
@@ -74,6 +74,24 @@
 	    var marker = new google.maps.Marker({
 		position: location,
 		map: map
+        });
+        
+        var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+
+        google.maps.event.addListener(searchbox, 'places_changed', function(){
+
+            var places = searhbox.getPlaces();
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
+            
+            for(i=0; place=places[i];i++){
+                bounds.extend(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+            }
+
+            map.fitBounds(bounds);
+            map.setZoom(15);
+
         });
     }
 </script>
