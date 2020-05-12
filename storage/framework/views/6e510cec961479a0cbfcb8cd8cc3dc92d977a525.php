@@ -1,7 +1,3 @@
-<?php $__env->startSection('content'); ?>
-
-
-
 <?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html>
     <head>
@@ -22,7 +18,7 @@
                 <div class="button-box">
                     <div id="btn"></div>
                     <button type="button" class="toggle-btn" onclick="login()"><?php echo e(__('Login')); ?></button>
-                    <button type="button" class="toggle-btn" onclick="register()"><?php echo e(__('Register')); ?></button>
+                    <button type="button" class="toggle-btn" onclick="register()"><a href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a></button>
                 </div>
                 
                 <div>
@@ -250,6 +246,4 @@ unset($__errorArgs, $__bag); ?>
         </script>
     </body>
 </html>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>

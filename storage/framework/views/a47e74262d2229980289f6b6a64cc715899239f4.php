@@ -9,8 +9,7 @@
 
         <!-- Login and Registration Form Title and CSS -->
         <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
+        <link rel="stylesheet" href="assets/style.css">
     </head>
-
-HelloWorld
 </html>
 <?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/layouts/header.blade.php ENDPATH**/ ?>

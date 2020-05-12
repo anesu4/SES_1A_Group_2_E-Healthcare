@@ -1,8 +1,4 @@
-
-
-<?php $__env->startSection('content'); ?>
-
-
+<?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html>
     <head>
         <title>Login and Registration Form Design</title>
@@ -248,6 +244,5 @@ unset($__errorArgs, $__bag); ?>
     </body>
 </html>
 
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/register.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/register.blade.php ENDPATH**/ ?>
