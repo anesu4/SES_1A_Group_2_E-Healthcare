@@ -68,6 +68,7 @@
 </body>
 </html>
 
+@include('layouts/header')
 <div class="content">
     <div class="hero-image"></div>
     <div class="user-home">
@@ -85,7 +86,7 @@
         </div>
         <div class="row">
             <div class="user-name">
-                <h3>Welcome User</h3></div>
+                <h3>Welcome  {{ Auth::user()->name }}</h3></div>
             <div class="column">
                 <div class="container">
                     <h3>Find Doctors</h3>
@@ -101,16 +102,13 @@
                     <div class="doctor-list">
                         <div class="doctor-obj">
                         <a href="" ><h6>Dr. Exmample Name</h6></a>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                        </div>
+                        <p>Lorem ipsum dolor, sit amet consectetur </div>
                         <div class="doctor-obj">
                         <a href="" ><h6>Dr. Exmample Name</h6></a>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                        </div>
+                        <p>Lorem ipsum dolor, sit amet consectetur </div>
                         <div class="doctor-obj">
                         <a href=""><h6>Dr. Exmample Name</h6></a>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                        </div>
+                        <p>Lorem ipsum dolor, sit amet consectetur </div>
                     </div>
                 </div>
             </div>

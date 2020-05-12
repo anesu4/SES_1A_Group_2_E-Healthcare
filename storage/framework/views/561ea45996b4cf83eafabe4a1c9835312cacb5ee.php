@@ -1,3 +1,6 @@
+<?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
 <!DOCTYPE html>
 <body>
     <head>
@@ -10,7 +13,7 @@
         <!-- Login and Registration Form Title and CSS -->
         <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
         <title>Account</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/style.css">
     </head>
     <div class="content">
         <div class="hero-image"></div>
@@ -48,4 +51,5 @@
 <script>
 
 </script>
-<?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/doctor.blade.php ENDPATH**/ ?>
+
+<?php echo $__env->make('layouts/app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/doctor.blade.php ENDPATH**/ ?>

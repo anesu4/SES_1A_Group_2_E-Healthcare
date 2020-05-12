@@ -11,5 +11,5 @@
         <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
     </head>
 
-
+HelloWorld
 </html>

@@ -1,3 +1,6 @@
+@include('layouts/header')
+@extends('layouts/app')
+
 <!DOCTYPE html>
 <body>
     <head>
@@ -10,7 +13,7 @@
         <!-- Login and Registration Form Title and CSS -->
         <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
         <title>Account</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="assets/style.css">
     </head>
     <div class="content">
         <div class="hero-image"></div>
