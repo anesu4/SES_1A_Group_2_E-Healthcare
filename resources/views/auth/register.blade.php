@@ -31,7 +31,7 @@
                     <form id="login" class="input-group">
                         @csrf
                                 <i class = "fa fa-user" ></i>
-                                <input id="email" type="email text" class="form-control @error('email') is-invalid @enderror input-field" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                                <input id="email" type="email text" class="@error('email') is-invalid @enderror input-field" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                                 @enderror
 
                             <i class="fa fa-lock"></i>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input-field" name="password" required autocomplete="current-password" placeholder="Password">
+                                <input id="password" type="password" class="@error('password') is-invalid @enderror input-field" name="password" required autocomplete="current-password" placeholder="Password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -66,15 +66,15 @@
                             <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
                         </div>
 
-                        <div class="col-md-6">
-                            <input id="name" type="text" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                        
+                        <input id="name" type="text" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
 
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        
                         {{-- <input type="text" class="input-field" placeholder="Email"/> --}}
                         <input id="email" type="email" class="input-field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address">
 
@@ -129,10 +129,10 @@
                 //shift button and form to register;  login = Overflow:hidden; reduce form height
                 loginForm.style.left="-400px"
                 regForm.style.left="50px"
-                toggleBtn.style.left="96px"
+                toggleBtn.style.left="94px"
                 //check if doctor is selected, without it the form will not extend to correct height
                 if(doctorForm){
-                    formBox.setAttribute("style","height:650px")
+                    formBox.setAttribute("style","height:700px")
                 }
                 else {
                     formBox.setAttribute("style","height:550px")
@@ -151,18 +151,18 @@
                 //hide doctor input fields; reduces form height
                 locationIF.setAttribute("style","display:none");
                 certFileIF.setAttribute("style","display:none");
-                formBox.setAttribute("style","height:450px");
+                formBox.setAttribute("style","height:550px");
                 doctorForm = false;
             }
             function doctor(){
 
                 //toggle btn to highlight doctor
-                toggleBtn2.style.left="96px"
+                toggleBtn2.style.left="94px"
 
                 //show doctor input fields; extend form height
                 locationIF.setAttribute("style","display:inline");
                 certFileIF.setAttribute("style","display:inline-block");
-                formBox.setAttribute("style","height:600px");
+                formBox.setAttribute("style","height:700px");
                 doctorForm = true;
             }
         </script>
