@@ -66,7 +66,7 @@
     </div>
 </body>
 <script>
-    function initMap() {
+    function initMap(){
 	    var location =	{lat: -33.868820, lng: 151.209290};
         var map = new google.maps.Map(document.getElementById('maps'), {
         zoom: 12,
@@ -77,6 +77,33 @@
 		position: location,
 		map: map
         });
-    }
+
+var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+
+google.maps.event.addListener(searchbox, 'places_changed', function(){
+
+
+var places = searhbox.getPlaces();
+
+var bounds = new google.maps.LatLngBounds();
+var i, place;
+
+for(i=0; place=places[i];i++){
+
+
+
+bounds.extend(place.geometry.location);
+
+marker.setPosition(place.geometry.location);
+
+}
+
+map.fitBounds(bounds);
+map.setZoom(15);
+
+});
+
+
+}
 </script>
 <?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/patient.blade.php ENDPATH**/ ?>

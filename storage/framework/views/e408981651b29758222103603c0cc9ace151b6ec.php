@@ -1,5 +1,3 @@
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -20,6 +18,8 @@
         </div>
     </div>
 </div>
+
+<?php echo $__env->make('index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/dashboard.blade.php ENDPATH**/ ?>

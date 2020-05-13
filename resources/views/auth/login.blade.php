@@ -1,4 +1,4 @@
-@include('layouts/header')
+@include('layouts.app')
 <html>
     <head>
         <title>Login and Registration Form Design</title>

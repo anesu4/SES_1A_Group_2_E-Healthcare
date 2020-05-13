@@ -1,6 +1,6 @@
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<div class="content">
+<div class="content login-page">
     <div class="user-home">
         <div class="row">
             <div class="user-name">

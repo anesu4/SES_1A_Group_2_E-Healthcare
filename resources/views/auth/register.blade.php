@@ -1,4 +1,4 @@
-@include('layouts/header')
+@include('layouts.app')
 <html>
     <head>
         <title>Login and Registration Form Design</title>
@@ -7,12 +7,6 @@
         {{-- <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/> --}}
         <link href=" {{ asset('img/background1.jpg') }}"/>
     </head>
-    <div class="header">
-        <!--placeholder header-->
-        {{-- <h1>E-Healthcare</h1>
-        <h4>Better health</h4> --}}
-        <div class="logo"><h2>E-Healthcare</h2></div>
-    </div>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">

@@ -1,6 +1,6 @@
 @include('layouts.app')
 
-<div class="content">
+<div class="content login-page">
     <div class="user-home">
         <div class="row">
             <div class="user-name">

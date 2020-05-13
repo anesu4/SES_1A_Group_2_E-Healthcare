@@ -12,7 +12,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-        <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+        <title>E-Healthcare</title>
 
         <!-- Scripts -->
         <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
@@ -28,11 +28,6 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                        <?php echo e(config('app.name', 'Laravel')); ?>
-
-                    </a>
-
                             <!-- Authentication Links -->
                             
                         </ul>
@@ -44,7 +39,4 @@
             </main>
         </div>
 </html>
-
-
-
 <?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/layouts/app.blade.php ENDPATH**/ ?>

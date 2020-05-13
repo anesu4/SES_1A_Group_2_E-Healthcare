@@ -10,11 +10,13 @@
         <!-- Login and Registration Form Title and CSS -->
         <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
         <link rel="stylesheet" href="assets/style.css">
+
+        <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
     <div class="header">
         <!--placeholder header-->
         <div class="logo">
-            <h2>E-Healthcare</h2>
+            <a href="<?php echo e(url('/')); ?>"><h2>E-Healthcare</h2></a>
             <h4 style="color:white;">Better Health, Online</h4>
         </div>
         <div class="navbar">
