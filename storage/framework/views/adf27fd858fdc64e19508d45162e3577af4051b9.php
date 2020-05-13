@@ -9,8 +9,7 @@
     </head>
     <div class="header">
         <!--placeholder header-->
-        <h1>E-Healthcare</h1>
-        <h4>Better health</h4>
+        <div class="logo"><h2>E-Healthcare</h2></div>
     </div>
     <body>
         <div class="login-page">
@@ -18,7 +17,7 @@
                 <div class="button-box">
                     <div id="btn"></div>
                     <button type="button" class="toggle-btn" onclick="login()"><?php echo e(__('Login')); ?></button>
-                    <button type="button" class="toggle-btn" onclick="register()"><a href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a></button>
+                    <button type="button" class="toggle-btn" onclick="register()"> <!--<a href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a> -->Register</button>
                 </div>
                 
                 <div>
@@ -201,10 +200,10 @@ unset($__errorArgs, $__bag); ?>
                 toggleBtn.style.left="96px"
                 //check if doctor is selected, without it the form will not extend to correct height
                 if(doctorForm){
-                    formBox.setAttribute("style","height:600px")
+                    formBox.setAttribute("style","height:700px")
                 }
                 else {
-                    formBox.setAttribute("style","height:450px")
+                    formBox.setAttribute("style","height:550px")
                 }
             }
             function login(){
@@ -220,7 +219,7 @@ unset($__errorArgs, $__bag); ?>
                 //hide doctor input fields; reduces form height
                 locationIF.setAttribute("style","display:none");
                 certFileIF.setAttribute("style","display:none");
-                formBox.setAttribute("style","height:450px");
+                formBox.setAttribute("style","height:550px");
                 doctorForm = false;
             }
             function doctor(){
@@ -231,7 +230,7 @@ unset($__errorArgs, $__bag); ?>
                 //show doctor input fields; extend form height
                 locationIF.setAttribute("style","display:inline");
                 certFileIF.setAttribute("style","display:inline-block");
-                formBox.setAttribute("style","height:600px");
+                formBox.setAttribute("style","height:700px");
                 doctorForm = true;
             }
         </script>
