@@ -35,7 +35,6 @@
         </div>
     </div>
     <div class="content">
-        <div class="hero-image"></div>
         <div class="user-home">
             <div class="navbar">
                 <a href="patient-home.html">Home</a>

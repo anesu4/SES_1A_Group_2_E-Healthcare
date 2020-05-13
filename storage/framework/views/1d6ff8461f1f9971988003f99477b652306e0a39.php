@@ -3,14 +3,14 @@
     <head>
         <title>Login and Registration Form Design</title>
         <link rel="stylesheet" href="assets/style.css"/>
-        <link href="<?php echo e(asset('css/bootstrap.min.css')); ?>"/>
-        <link href=" <?php echo e(asset('plugins/font-awesome/font-awesome.min.css')); ?>"/>
+        
+        
         <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
     <div class="header">
         <!--placeholder header-->
-        <h1>E-Healthcare</h1>
-        <h4>Better health</h4>
+        
+        <div class="logo"><h2>E-Healthcare</h2></div>
     </div>
     <body>
         <div class="login-page">
@@ -22,9 +22,10 @@
                 </div>
                 
                 <div>
-                    <form id="login" class="input-group">
+                    <form id="login" class="input-group" method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>
                                 <i class = "fa fa-user" ></i>
+
                                 <input id="email" type="email text" class="<?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -76,7 +77,10 @@ unset($__errorArgs, $__bag); ?>
 
                                     </label>
 
+                                    <button id="logBtn" type="submit" class="submit-btn">
+                                        <?php echo e(__('Login')); ?>
 
+                                    </button>
                     </form>
 
 
@@ -89,15 +93,15 @@ unset($__errorArgs, $__bag); ?>
                             <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
                         </div>
 
-                        
-                        <input id="name" type="text" class="input-field <?php $__errorArgs = ['name'];
+
+                        <input id="name" type="name" class="input-field <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="name" value="<?php echo e(old('name')); ?>" required autocomplete="name" autofocus placeholder="Name">
+unset($__errorArgs, $__bag); ?>" name="name" value="<?php echo e(old('name')); ?>" required autocomplete="name" placeholder="Name">
 
                         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -111,7 +115,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                        
+
                         
                         <input id="email" type="email" class="input-field <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -158,12 +162,31 @@ unset($__errorArgs, $__bag); ?>
                         
                         <input id="password-confirm" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                         
-                        <input type="text" class="input-field" id="search-location" placeholder="Enter your location"/>
+                        <input type="text" class="input-field <?php $__errorArgs = ['location'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="search-location" name="password" placeholder="Enter your location"/>
+                        <?php $__errorArgs = ['location'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($message); ?></strong>
+                                    </span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
                             <p>Upload doctor certification</p>
                             <input type="file" id="certFile">
                         </div>
-                        <button type="submit" class="submit-btn">
+                        <button id="regBtn" type="submit" class="submit-btn">
                             <?php echo e(__('Register')); ?>
 
                         </button>
@@ -188,6 +211,10 @@ unset($__errorArgs, $__bag); ?>
             var certFileIF = document.getElementById("certFile-container");
             var locationIF = document.getElementById("search-location");
 
+            // document.getElementById("logBtn").disabled = true;
+
+
+
             //boolean checks if doctor form is selected, false by default becacuse patient is selected
             var doctorForm = false;
 
@@ -203,6 +230,8 @@ unset($__errorArgs, $__bag); ?>
                 else {
                     formBox.setAttribute("style","height:550px")
                 }
+                document.getElementById("logBtn").disabled = true;
+                document.getElementById("regBtn").disabled = false;
             }
             function login(){
                 //shift button and form to login;  register = Overflow:hidden; extend form height
@@ -210,6 +239,8 @@ unset($__errorArgs, $__bag); ?>
                 regForm.style.left="500px"
                 toggleBtn.style.left="0px"
                 formBox.setAttribute("style","height:300px");
+                document.getElementById("regBtn").disabled = true;
+                document.getElementById("logBtn").disabled = false;
             }
             function patient(){
                 //toggle btn to highlight patient
