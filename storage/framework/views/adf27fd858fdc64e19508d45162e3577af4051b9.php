@@ -189,11 +189,6 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <footer>
-                This is just chillin here as a placeholder footer <!-- placeholder footer, doesnt do anything. check css -->
-            </footer>
-        </div>
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
@@ -269,6 +264,4 @@ unset($__errorArgs, $__bag); ?>
         </script>
     </body>
 </html>
-
-<?php echo $__env->make('layouts/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH D:\Git Repo\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>

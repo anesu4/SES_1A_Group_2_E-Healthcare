@@ -108,11 +108,6 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <footer>
-                This is just chillin here as a placeholder footer <!-- placeholder footer, doesnt do anything. check css -->
-            </footer>
-        </div>
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects

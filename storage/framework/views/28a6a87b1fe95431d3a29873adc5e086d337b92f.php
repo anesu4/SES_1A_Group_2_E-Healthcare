@@ -5,7 +5,7 @@
         <link href="<?php echo e(asset('assets/plugins/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet" />
         <link href="<?php echo e(asset('assets/plugins/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" />
         <link href="<?php echo e(asset('assets/plugins/listtyicons/style.min.css')); ?>" rel="stylesheet" />
-		<link href="<?php echo e(asset('assets/plugins/selectbox/select_option1.min.css')); ?>" rel="stylesheet" />
+		<link href="<?php echo e(asset('assets/plugins/selectbox/select_option1.min.css')); ?>" rel="stylesheet"/>
 
         <!-- Login and Registration Form Title and CSS -->
         <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
@@ -17,15 +17,15 @@
             <h2>E-Healthcare</h2>
         </div>
         <div class="navbar">
-            <a href="patient-home.html">Home</a>
+            <a href="/">Home</a>
             <a href="">Appointments</a>
             <a href="">Messaging</a>
-            <a href="patient-form.html">Patient Forms</a>
-            <div class="dropdown">
-                <button class="drop-btn">Account <i class="fa-caret-down"></i></button>
-                <div class="dropdown-content">
+            <a href="/patient">Patient Forms</a>
+            <div class="nav-dropdown">
+                <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
+                <div class="nav-dropdown-content">
                     <a href="">Settings</a>
-                    <a href="Index.html">Log out</a>
+                    <a href="/login">Log out</a>
                 </div>
             </div>
         </div>

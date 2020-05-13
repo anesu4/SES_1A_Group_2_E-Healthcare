@@ -93,8 +93,8 @@
                                     </div>
                                 </li>
                             @endguest
-                        </ul>
-                    </div>
+                        <!-- </ul>
+                    </div> -->
                 </div>
             </nav>
 
@@ -115,7 +115,7 @@
 		position: location,
 		map: map
         });
-        
+
         var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
 
         google.maps.event.addListener(searchbox, 'places_changed', function(){
@@ -134,6 +134,7 @@
 
         });
     }
+    google.maps.event.addDomListener(window,'load', initMap);
     </script>
 </html>
 
