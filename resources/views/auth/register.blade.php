@@ -3,14 +3,15 @@
     <head>
         <title>Login and Registration Form Design</title>
         <link rel="stylesheet" href="assets/style.css"/>
-        <link href="{{ asset('css/bootstrap.min.css') }}"/>
-        <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/>
+        {{-- <link href="{{ asset('css/bootstrap.min.css') }}"/> --}}
+        {{-- <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/> --}}
         <link href=" {{ asset('img/background1.jpg') }}"/>
     </head>
     <div class="header">
         <!--placeholder header-->
-        <h1>E-Healthcare</h1>
-        <h4>Better health</h4>
+        {{-- <h1>E-Healthcare</h1>
+        <h4>Better health</h4> --}}
+        <div class="logo"><h2>E-Healthcare</h2></div>
     </div>
     <body>
         <div class="login-page">
@@ -28,9 +29,10 @@
                     <button type="submit" class="submit-btn" >{{ __('Login') }}</button>
                 </form> --}}
                 <div>
-                    <form id="login" class="input-group">
+                    <form id="login" class="input-group" method="POST" action="{{ route('login') }}">
                         @csrf
                                 <i class = "fa fa-user" ></i>
+
                                 <input id="email" type="email text" class="@error('email') is-invalid @enderror input-field" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
 
                                 @error('email')
@@ -53,7 +55,9 @@
                                         {{ __('Remember Me') }}
                                     </label>
 
-
+                                    <button id="logBtn" type="submit" class="submit-btn">
+                                        {{ __('Login') }}
+                                    </button>
                     </form>
 
 
@@ -66,15 +70,15 @@
                             <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
                         </div>
 
-                        
-                        <input id="name" type="text" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+
+                        <input id="name" type="name" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name">
 
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        
+
                         {{-- <input type="text" class="input-field" placeholder="Email"/> --}}
                         <input id="email" type="email" class="input-field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address">
 
@@ -93,12 +97,17 @@
                         {{-- <input type="password" class="input-field" placeholder="Password"/> --}}
                         <input id="password-confirm" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                         {{-- <input type="password" class="input-field" placeholder="Confirm password"/> --}}
-                        <input type="text" class="input-field" id="search-location" placeholder="Enter your location"/>
+                        <input type="text" class="input-field @error('location') is-invalid @enderror" id="search-location" name="password" placeholder="Enter your location"/>
+                        @error('location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
                             <p>Upload doctor certification</p>
                             <input type="file" id="certFile">
                         </div>
-                        <button type="submit" class="submit-btn">
+                        <button id="regBtn" type="submit" class="submit-btn">
                             {{ __('Register') }}
                         </button>
                     </form>
@@ -122,6 +131,10 @@
             var certFileIF = document.getElementById("certFile-container");
             var locationIF = document.getElementById("search-location");
 
+            // document.getElementById("logBtn").disabled = true;
+
+
+
             //boolean checks if doctor form is selected, false by default becacuse patient is selected
             var doctorForm = false;
 
@@ -137,6 +150,8 @@
                 else {
                     formBox.setAttribute("style","height:550px")
                 }
+                document.getElementById("logBtn").disabled = true;
+                document.getElementById("regBtn").disabled = false;
             }
             function login(){
                 //shift button and form to login;  register = Overflow:hidden; extend form height
@@ -144,6 +159,8 @@
                 regForm.style.left="500px"
                 toggleBtn.style.left="0px"
                 formBox.setAttribute("style","height:300px");
+                document.getElementById("regBtn").disabled = true;
+                document.getElementById("logBtn").disabled = false;
             }
             function patient(){
                 //toggle btn to highlight patient

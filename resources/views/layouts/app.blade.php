@@ -97,7 +97,7 @@
                 </div>
                 <div class="row">
                     <div class="user-name">
-                        <h3>Welcome User</h3></div>
+                        <h3>Welcome Guest!</h3></div>
                     <div class="column">
                         <div class="container">
                             <h3>Find Doctors</h3>
