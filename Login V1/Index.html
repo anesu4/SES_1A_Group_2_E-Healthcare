@@ -5,17 +5,19 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <div class="header">
-        <!--placeholder header-->        
-        <h1>E-Healthcare</h1>
-        <h4>Better health</h4>
+        <!--placeholder header-->
+        <div class="logo">
+        <h2>E-Healthcare</h2>
+        </div>
+        
     </div>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
                 <div class="button-box">
                     <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Login</button>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                    <button type="button" id="login-Btn" class="toggle-btn" onclick="login()">Login</button>
+                    <button type="button" id="register-Btn" class="toggle-btn" onclick="register()">Register</button>
                 </div>
                 <div class="form">
                     <form id="login" class="input-group">
