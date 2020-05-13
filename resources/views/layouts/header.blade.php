@@ -15,6 +15,7 @@
         <!--placeholder header-->
         <div class="logo">
             <h2>E-Healthcare</h2>
+            <h4 style="color:white;">Better Health, Online</h4>
         </div>
         <div class="navbar">
             <a href="/">Home</a>
@@ -25,7 +26,30 @@
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
                 <div class="nav-dropdown-content">
                     <a href="">Settings</a>
-                    <a href="/login">Log out</a>
+                        @guest
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                            @if (Route::has('register'))
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+
+                            @endif
+                            @else
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                         @endguest
                 </div>
             </div>
         </div>

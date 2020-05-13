@@ -7,11 +7,6 @@
         <link href=" <?php echo e(asset('plugins/font-awesome/font-awesome.min.css')); ?>"/>
         <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
-    <div class="header">
-        <!--placeholder header-->
-        
-        <div class="logo"><h2>E-Healthcare</h2></div>
-    </div>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
@@ -194,11 +189,6 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <footer>
-                This is just chillin here as a placeholder footer <!-- placeholder footer, doesnt do anything. check css -->
-            </footer>
-        </div>
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
@@ -274,7 +264,4 @@ unset($__errorArgs, $__bag); ?>
         </script>
     </body>
 </html>
-
-<?php echo $__env->make('layouts/footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-<?php echo $__env->make('layouts/app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>

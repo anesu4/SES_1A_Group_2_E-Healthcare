@@ -24,8 +24,8 @@ Route::get('/patient', function () {return view('patient');});
 Route::get('/doctor', function () {return view('doctor');});
 
 //User Authentication
-Route::get('/login', 'auth\LoginController@index')->name('login');
-Route::post('/login', 'auth\LoginController@login')->name('login');
+// Route::get('/login', 'auth\LoginController@index')->name('login');
+// Route::post('/login', 'auth\LoginController@login')->name('login');
 // Route::get('/logout', 'auth\LoginController@logout')->name('logout');
 // Route::post('/logout', 'auth\LoginController@logout')->name('logout');
 // Route::get('/register/{pid?}', 'auth\RegisterController@index')->name('register');
@@ -40,5 +40,4 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

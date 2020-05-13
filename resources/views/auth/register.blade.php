@@ -194,5 +194,3 @@
         </script>
     </body>
 </html>
-
-@include('layouts/footer')
