@@ -11,4 +11,23 @@
         <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
         <link rel="stylesheet" href="assets/style.css">
     </head>
+    <div class="header">
+            <!--placeholder header-->
+            <div class="logo">
+                <h2>E-Healthcare</h2>
+            </div>
+            <div class="navbar">
+                <a href="patient-home.html">Home</a>
+                <a href="">Appointments</a>
+                <a href="">Messaging</a>
+                <a href="patient-form.html">Patient Forms</a>
+                <div class="dropdown">
+                    <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="">Settings</a>
+                        <a href="Index.html">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 </html>

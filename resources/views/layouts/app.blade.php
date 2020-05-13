@@ -83,18 +83,6 @@
         <div class="content">
             <div class="hero-image"></div>
             <div class="user-home">
-                <div class="navbar">
-                    <a href="patient-home.html">Home</a>
-                    <a href="">Appointments</a>
-                    <a href="">Messaging</a>
-                    <div class="dropdown">
-                        <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
-                        <div class="dropdown-content">
-                            <a href="patient-form.html">Patient Forms</a>
-                            <a href="">Settings</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="user-name">
                         <h3>Welcome Guest!</h3></div>
