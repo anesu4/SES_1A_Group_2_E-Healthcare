@@ -149,6 +149,7 @@ class ComposerStaticInitcae8547368a7e25ba6e44e8907f0a5d5
         'C' => 
         array (
             'Cron\\' => 5,
+            'Cmgmyr\\Messenger\\' => 17,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -425,6 +426,10 @@ class ComposerStaticInitcae8547368a7e25ba6e44e8907f0a5d5
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Cmgmyr\\Messenger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmgmyr/messenger/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -474,6 +479,7 @@ class ComposerStaticInitcae8547368a7e25ba6e44e8907f0a5d5
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/auth/VerificationController.php',
+        'App\\Http\\Controllers\\ChatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/HomeController.php',
@@ -549,6 +555,12 @@ class ComposerStaticInitcae8547368a7e25ba6e44e8907f0a5d5
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Cmgmyr\\Messenger\\MessengerServiceProvider' => __DIR__ . '/..' . '/cmgmyr/messenger/src/MessengerServiceProvider.php',
+        'Cmgmyr\\Messenger\\Models\\Message' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Message.php',
+        'Cmgmyr\\Messenger\\Models\\Models' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Models.php',
+        'Cmgmyr\\Messenger\\Models\\Participant' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Participant.php',
+        'Cmgmyr\\Messenger\\Models\\Thread' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Models/Thread.php',
+        'Cmgmyr\\Messenger\\Traits\\Messagable' => __DIR__ . '/..' . '/cmgmyr/messenger/src/Traits/Messagable.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',

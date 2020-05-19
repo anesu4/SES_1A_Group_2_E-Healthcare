@@ -30,8 +30,6 @@
                 <div class="container">
                             <!-- Authentication Links -->
                             
-                        </ul>
-                    </div>
                 </div>
             </nav>
             <main class="py-4">

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 // Index Home Page
 Route::get('/', function () {
@@ -38,8 +39,15 @@ Route::get('/patient-form', function () {return view('patient-form');});
 //     return view('errors.404');
 // });
 
-Auth::routes();
+// Home Page/Dashboard
 Route::get('/dashboard', 'DashboardController@index');
-
-Auth::routes();
 Route::get('/home', 'DashboardController@index')->name('home');
+
+// Messages
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+    Route::get('/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+    Route::put('/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+});

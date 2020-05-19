@@ -56,9 +56,9 @@
                                         </form>
                                     </div>
                                 </li>
-                            @endguest --}}
+                            @endguest
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
             <main class="py-4">

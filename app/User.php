@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use Messagable;
 
     /**
      * The attributes that are mass assignable.
@@ -40,7 +42,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'users';
 
 //     public static $rules = [
 //         'name' => 'required|string|max:255',

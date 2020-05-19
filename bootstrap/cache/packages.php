@@ -1,4 +1,11 @@
 <?php return array (
+  'cmgmyr/messenger' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Cmgmyr\\Messenger\\MessengerServiceProvider',
+    ),
+  ),
   'facade/ignition' => 
   array (
     'providers' => 

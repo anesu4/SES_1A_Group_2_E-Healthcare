@@ -1,45 +1,44 @@
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-<div class="content login-page">
-    <div class="user-home">
-        <div class="row">
-            <div class="user-name">
-                <?php if(auth()->guard()->guest()): ?>
-                <?php if(Route::has('register')): ?>
-                <h3>Welcome Guest!</h3>
-                <?php endif; ?>
-                <?php else: ?> <h3>Welcome <?php echo e(Auth::User()->name); ?>!</h3>
-                <?php endif; ?>
-            </div>
-            <div class="column">
-                <div class="col-container">
-                    <h3>Find Doctors</h3>
-                    <div id="maps"></div>
-                    <form action="">
-                        <input type="text" class="maps-search" id="search" placeholder="Search"/>
-                    </form>
+<body>
+    <div class="content login-page">
+        <div class="user-home">
+            <div class="row">
+                <div class="user-name">
+                    <?php if(auth()->guard()->guest()): ?>
+                    <?php if(Route::has('register')): ?>
+                    <h3>Welcome Guest!</h3>
+                    <?php endif; ?>
+                    <?php else: ?> <h3>Welcome <?php echo e(Auth::User()->name); ?>!</h3>
+                    <?php endif; ?>
                 </div>
-            </div>
-            <div class="column">
-                <div class="col-container">
-                    <h3>Added Doctors</h3>
-                    <div class="doctor-list">
-                        <div class="doctor-obj">
-                        <a href="" ><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
-                        <div class="doctor-obj">
-                        <a href="" ><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
-                        <div class="doctor-obj">
-                        <a href=""><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Find Doctors</h3>
+                        <div id="maps"></div>
+                        <form action="">
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Added Doctors</h3>
+                        <div class="doctor-list">
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href=""><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 </body>
 <script>
 function initMap() {
