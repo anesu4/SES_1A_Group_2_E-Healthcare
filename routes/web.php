@@ -22,6 +22,8 @@ Route::get('/', function () {
 // Doctor and Patient URL Pages
 Route::get('/patient', function () {return view('patient');});
 Route::get('/doctor', function () {return view('doctor');});
+Route::get('/messages', function () {return view('messages');});
+Route::get('/patient-form', function () {return view('patient-form');});
 
 //User Authentication
 // Route::get('/login', 'auth\LoginController@index')->name('login');
