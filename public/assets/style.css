@@ -20,10 +20,15 @@
     font-weight: normal;
     color: white;
 }
+.header h4{
+    margin: 0px;
+}
 
 .logo {
     float: left;
     padding-left: 170px;
+    margin: 0px;
+    
 }
 
 .Droplist{
@@ -234,16 +239,6 @@
     height: 1000px;
     background-color: white;
 }
-.row{
-    margin: 0px;
-    width: 100%;
-}
-
-.row::after{
-    display: table;
-    content: "";
-    clear: both;
-}
 
 .column{
     margin: 0px;
@@ -251,9 +246,24 @@
     width: 50%;
 }
 
+.chat-history{
+    height: 65vh;
+    width: 100%;
+    background-color: lightgray;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+
+}
+
 .column .col-container {
     margin: 10px 50px;
 }
+
+.inbox_chat { 
+    height: 550px; 
+    overflow-y: scroll;
+}
+
 
 .user-name{
     max-height: 100px;

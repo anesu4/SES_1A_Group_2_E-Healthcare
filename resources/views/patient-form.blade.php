@@ -18,14 +18,9 @@
         <div class="user-home">
             <div class="row">
                 <div class="user-name">
-                    <h3>Welcome Doctor!</h3>
+                    <h3>Enter your details</h3>
                 </div>
-                <div class="column">
-                    <div class="col-container">
-                        <h3>Find Doctors</h3>                        
-                    </div>
-                </div>
-                <div class="column">
+                <div class="col-3 mx-atuo">
                     <div class="col-container">
                         <h3>Patient meetings</h3>
                         <div class="doctor-list">

@@ -1,7 +1,6 @@
 @include('layouts/header')
 <!DOCTYPE html>
 <head>
-    <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
     <!-- PLUGINS CSS STYLE -->
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
@@ -9,41 +8,41 @@
     <link href="{{ asset('assets/plugins/selectbox/select_option1.min.css')}}" rel="stylesheet" />
 
     <!-- Login and Registration Form Title and CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
     <title>Account</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
 </head>
 <body>
-    <div class="content login-page">
-        <div class="user-home">
+    <div class="p-3 mb-2">
+        <div class="container-fluid">
             <div class="row">
-                <div class="user-name">
-                    @guest
-                    @if (Route::has('register'))
-                    <h3>Welcome Doctor!</h3>
-                    @endif
-                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
-                    @endguest
-                </div>
-                <div class="column">
-                    <div class="col-container">
-                        <h3>Find Doctors</h3>                        
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-">
+                    <h3>Chats</h3>
+                    <div class="inbox_chat">
+                        <div class="btn-group-vertical" >
+                            <button class="btn input-block-level form-control btn-lg">Dr. Example name</button>
+                            <button class="btn input-block-level form-control btn-lg">Dr. Example name</button>
+                            <button class="btn input-block-level form-control btn-lg">Dr. Example name</button>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="col-container">
-                        <h3>Patient meetings</h3>
-                        <div class="doctor-list">
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href=""><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                        </div>
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <div class="">
+                        <h3>Dr. Example name</h3>
+                    </div>
+                    <div class="chat-history">
+
+                    </div>
+                    <div class="container" >
+                        <form action="">
+                            <div class="row">
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" >
+                                    <div class="text-center"><input type="text" class="form-control" placeholder="enter message" ></div>
+                                </div>
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" >
+                                    <button class="btn" type="button">Send</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
