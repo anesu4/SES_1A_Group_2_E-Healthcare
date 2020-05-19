@@ -1,45 +1,44 @@
 @include('layouts.app')
-
-<div class="content login-page">
-    <div class="user-home">
-        <div class="row">
-            <div class="user-name">
-                @guest
-                @if (Route::has('register'))
-                <h3>Welcome Guest!</h3>
-                @endif
-                @else <h3>Welcome {{Auth::User()->name}}!</h3>
-                @endguest
-            </div>
-            <div class="column">
-                <div class="col-container">
-                    <h3>Find Doctors</h3>
-                    <div id="maps"></div>
-                    <form action="">
-                        <input type="text" class="maps-search" id="search" placeholder="Search"/>
-                    </form>
+<body>
+    <div class="content login-page">
+        <div class="user-home">
+            <div class="row">
+                <div class="user-name">
+                    @guest
+                    @if (Route::has('register'))
+                    <h3>Welcome Guest!</h3>
+                    @endif
+                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
+                    @endguest
                 </div>
-            </div>
-            <div class="column">
-                <div class="col-container">
-                    <h3>Added Doctors</h3>
-                    <div class="doctor-list">
-                        <div class="doctor-obj">
-                        <a href="" ><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
-                        <div class="doctor-obj">
-                        <a href="" ><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
-                        <div class="doctor-obj">
-                        <a href=""><h6>Dr. Example Name</h6></a>
-                        <p>Lorem ipsum dolor</div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Find Doctors</h3>
+                        <div id="maps"></div>
+                        <form action="">
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Added Doctors</h3>
+                        <div class="doctor-list">
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href=""><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
 </body>
 <script>
 function initMap() {

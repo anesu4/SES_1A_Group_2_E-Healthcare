@@ -18,18 +18,6 @@
     <div class="content">
         <div class="hero-image"></div>
         <div class="user-home">
-            <div class="navbar">
-                <a href="patient-home.html">Home</a>
-                <a href="">Appointments</a>
-                <a href="">Messaging</a>
-                <div class="dropdown">
-                    <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
-                    <div class="dropdown-content">
-                        <a href="patient-form.html">Patient Forms</a>
-                        <a href="">Settings</a>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="user-name">
                     <h3>Welcome User</h3></div>
@@ -69,40 +57,29 @@
     function initMap(){
 	    var location =	{lat: -33.868820, lng: 151.209290};
         var map = new google.maps.Map(document.getElementById('maps'), {
-        zoom: 12,
-        center: location
+            zoom: 12,
+            center: location
         });
 
 	    var marker = new google.maps.Marker({
-		position: location,
-		map: map
+            position: location,
+            map: map
         });
 
-var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+        var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+        google.maps.event.addListener(searchbox, 'places_changed', function(){
+            var places = searhbox.getPlaces();
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
 
-google.maps.event.addListener(searchbox, 'places_changed', function(){
+            for(i=0; place=places[i];i++){
+                bounds.extend(place.geometry.location);
 
+                marker.setPosition(place.geometry.location);
 
-var places = searhbox.getPlaces();
-
-var bounds = new google.maps.LatLngBounds();
-var i, place;
-
-for(i=0; place=places[i];i++){
-
-
-
-bounds.extend(place.geometry.location);
-
-marker.setPosition(place.geometry.location);
-
-}
-
-map.fitBounds(bounds);
-map.setZoom(15);
-
-});
-
-
-}
+            }
+            map.fitBounds(bounds);
+            map.setZoom(15);
+        });
+    }
 </script>
