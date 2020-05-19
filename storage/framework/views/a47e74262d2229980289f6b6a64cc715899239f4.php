@@ -23,7 +23,7 @@
             <a href="/">Home</a>
             <a href="">Appointments</a>
             <a href="/messages">Messaging</a>
-            <a href="/patient">Patient Forms</a>
+            <a href="/patient-form">Patient Forms</a>
             <div class="nav-dropdown">
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
                 <div class="nav-dropdown-content">

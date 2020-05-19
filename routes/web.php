@@ -51,3 +51,8 @@ Route::group(['prefix' => 'messages'], function () {
     Route::get('/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
+
+//Messaging View
+Route::get('/messaging', function () {
+    return view('messages');
+});
