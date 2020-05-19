@@ -266,10 +266,11 @@
 }
 
 .navbar{
-    padding-top: 27px;
+    padding-top: 37px;
     font-size: 12px;
     padding-right: 150px;
     float: right;
+    margin: 0;
 }
 
 .navbar a{
