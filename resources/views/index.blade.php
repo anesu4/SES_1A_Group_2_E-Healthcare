@@ -48,10 +48,19 @@ zoom: 12,
 center: location
 });
 
-var marker = new google.maps.Marker({
-position: location,
-map: map
-});
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+        marker.addListener('click', toggleBounce);
+
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
 
 var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
 
@@ -73,4 +82,7 @@ google.maps.event.addListener(searchbox, 'places_changed', function(){
 }
 google.maps.event.addDomListener(window,'load', initMap);
 </script>
+
+
+
 
