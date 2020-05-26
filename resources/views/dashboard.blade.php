@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@include('layouts.app')
 
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -19,8 +19,7 @@
         </div>
     </div>
 </div> --}}
-
-<body>
+<div class=>
     <div class="content login-page">
         <div class="user-home">
             <div class="row">
@@ -58,9 +57,19 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col">cols</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+                <div class="row">
+                <div class="col-8">col-8</div>
+                <div class="col-4">col-4</div>
+            </div>
         </div>
     </div>
-</body>
+</div>
 <script>
 function initMap() {
 var location =	{lat: -33.868820, lng: 151.209290};
@@ -95,6 +104,4 @@ google.maps.event.addListener(searchbox, 'places_changed', function(){
 google.maps.event.addDomListener(window,'load', initMap);
 </script>
 
-
-
-
+@include('layouts.footer')

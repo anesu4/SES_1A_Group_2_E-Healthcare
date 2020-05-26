@@ -62,3 +62,11 @@ Route::group(['prefix' => 'messages'], function () {
 Route::get('/messaging', function () {
     return view('messages');
 });
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+Route::get('/appointment', function () {
+    return view('appointment');
+});

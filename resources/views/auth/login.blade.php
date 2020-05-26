@@ -108,7 +108,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
