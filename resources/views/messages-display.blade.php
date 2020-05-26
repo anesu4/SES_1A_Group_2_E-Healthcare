@@ -16,11 +16,29 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <div class="">
                         <h3>Dr. Example name</h3>
                     </div>
                     <div class="chat-history">
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
                         <div class="inbox-message in">
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
                         </div>
