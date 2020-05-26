@@ -1,4 +1,4 @@
-<?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html>
     <head>
         <title>Login and Registration Form Design</title>
@@ -189,6 +189,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
         </div>
+        
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
