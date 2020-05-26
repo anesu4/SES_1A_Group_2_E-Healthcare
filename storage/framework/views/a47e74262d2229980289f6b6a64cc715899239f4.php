@@ -23,11 +23,14 @@
             <a href="/">Home</a>
             <a href="">Appointments</a>
             <a href="/messages">Messaging</a>
-            <a href="/patient-form">Patient Forms</a>
             <div class="nav-dropdown">
+                <?php if(Route::has('register')): ?>
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
+                <?php else: ?>
+                <button class="drop-btn"><?php echo e(Auth::user()->name); ?> <i class="fa fa-caret-down"></i></button>
+                <?php endif; ?>
                 <div class="nav-dropdown-content">
-                    <a href="">Settings</a>
+                    <a href="">Account</a>
                         <?php if(auth()->guard()->guest()): ?>
                             <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
 

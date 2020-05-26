@@ -23,11 +23,14 @@
             <a href="/">Home</a>
             <a href="">Appointments</a>
             <a href="/messages">Messaging</a>
-            <a href="/patient-form">Patient Forms</a>
             <div class="nav-dropdown">
+                @if (Route::has('register'))
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
+                @else
+                <button class="drop-btn">{{ Auth::user()->name }} <i class="fa fa-caret-down"></i></button>
+                @endif
                 <div class="nav-dropdown-content">
-                    <a href="">Settings</a>
+                    <a href="">Account</a>
                         @guest
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 

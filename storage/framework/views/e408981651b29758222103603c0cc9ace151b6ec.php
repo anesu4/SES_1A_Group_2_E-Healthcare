@@ -1,25 +1,80 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    <?php if(session('status')): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo e(session('status')); ?>
-
-                        </div>
+<body>
+    <div class="content login-page">
+        <div class="user-home">
+            <div class="row">
+                <div class="user-name">
+                    <?php if(auth()->guard()->guest()): ?>
+                    <?php if(Route::has('register')): ?>
+                    <h3>Welcome Guest!</h3>
                     <?php endif; ?>
-
-                    You are logged in!
+                    <?php else: ?> <h3>Welcome <?php echo e(Auth::User()->name); ?>!</h3>
+                    <?php endif; ?>
+                </div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Find Doctors</h3>
+                        <div id="maps"></div>
+                        <form action="">
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                        </form>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="col-container">
+                        <h3>Added Doctors</h3>
+                        <div class="doctor-list">
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href=""><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+<script>
+function initMap() {
+var location =	{lat: -33.868820, lng: 151.209290};
+var map = new google.maps.Map(document.getElementById('maps'), {
+zoom: 12,
+center: location
+});
 
-<?php echo $__env->make('index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+var marker = new google.maps.Marker({
+position: location,
+map: map
+});
+
+var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+
+google.maps.event.addListener(searchbox, 'places_changed', function(){
+
+    var places = searhbox.getPlaces();
+    var bounds = new google.maps.LatLngBounds();
+    var i, place;
+
+    for(i=0; place=places[i];i++){
+        bounds.extend(place.geometry.location);
+        marker.setPosition(place.geometry.location);
+    }
+
+    map.fitBounds(bounds);
+    map.setZoom(15);
+
+});
+}
+google.maps.event.addDomListener(window,'load', initMap);
+</script>
+
+
+
 
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/dashboard.blade.php ENDPATH**/ ?>

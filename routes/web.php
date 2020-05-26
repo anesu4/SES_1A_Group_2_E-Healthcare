@@ -16,9 +16,8 @@ Auth::routes();
 
 // Index Home Page
 Route::get('/', function () {
-    return view('index');
-});
-
+        return view('index');
+    });
 
 // Doctor and Patient URL Pages
 Route::get('/patient', function () {return view('patient');});
@@ -41,8 +40,14 @@ Route::get('/messages-display', function () {return view('messages-display');});
 // });
 
 // Home Page/Dashboard
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/home', 'DashboardController@index')->name('home');
+// Route::get('/dashboard', 'DashboardController@index');
+// Route::get('/home', 'DashboardController@index')->name('home');
+
+Route::group(['middleware' => ['web']], function () {
+    Route::auth();
+    Route::get('/', 'DashboardController@index');
+
+});
 
 // Messages
 Route::group(['prefix' => 'messages'], function () {
