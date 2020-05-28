@@ -3,9 +3,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <!-- google maps api key -->
-        <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap"></script>
-
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -61,7 +59,7 @@
                     </div> --}}
                 </div>
             </nav>
-            <main>
+            <main class="py-4">
                 @yield('content')
             </main>
         </div>
