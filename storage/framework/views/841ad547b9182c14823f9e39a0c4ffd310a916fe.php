@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="col-md-6">
         <h1><?php echo e($thread->subject); ?></h1>

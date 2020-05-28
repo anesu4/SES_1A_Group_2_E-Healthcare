@@ -249,21 +249,46 @@
 .chat-history{
     height: 65vh;
     width: 100%;
-    background-color: lightgray;
+    background-color: rgb(248, 248, 248);
     overflow-y: scroll;
     margin-bottom: 10px;
-
+    border-radius: 5px;
 }
 
 .column .col-container {
     margin: 10px 50px;
 }
 
-.inbox_chat { 
+.inbox-chat {
     height: 550px; 
     overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 10px;
 }
 
+.inbox-message{
+    margin: 10px;
+    padding: 15px;
+    max-width: 750px;
+    min-width: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.out{
+    background: lightskyblue;
+    float: right;
+}
+
+.in{
+    background: white;
+    float: left;
+}
+
+.inbox-message p{
+    margin: 0px;
+}
 
 .user-name{
     max-height: 100px;

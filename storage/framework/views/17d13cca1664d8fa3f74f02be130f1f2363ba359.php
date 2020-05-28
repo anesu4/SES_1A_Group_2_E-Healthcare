@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <h1>Create a new message</h1>
     <form action="<?php echo e(route('messages.store')); ?>" method="post">

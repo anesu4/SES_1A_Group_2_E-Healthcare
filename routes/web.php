@@ -16,15 +16,15 @@ Auth::routes();
 
 // Index Home Page
 Route::get('/', function () {
-    return view('index');
-});
-
+        return view('index');
+    });
 
 // Doctor and Patient URL Pages
 Route::get('/patient', function () {return view('patient');});
 Route::get('/doctor', function () {return view('doctor');});
-Route::get('/messages', function () {return view('messages');});
+Route::get('/messaging', function () {return view('messaging');});
 Route::get('/patient-form', function () {return view('patient-form');});
+Route::get('/messaging-display', function () {return view('messaging-display');});
 
 //User Authentication
 // Route::get('/login', 'auth\LoginController@index')->name('login');
@@ -40,19 +40,33 @@ Route::get('/patient-form', function () {return view('patient-form');});
 // });
 
 // Home Page/Dashboard
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/home', 'DashboardController@index')->name('home');
+// Route::get('/dashboard', 'DashboardController@index');
+// Route::get('/home', 'DashboardController@index')->name('home');
 
-// Messages
-Route::group(['prefix' => 'messages'], function () {
-    Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-    Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-    Route::get('/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+Route::group(['middleware' => ['web']], function () {
+    Route::auth();
+    Route::get('/', 'DashboardController@index');
+
 });
 
+// messaging
+// Route::group(['prefix' => 'messages'], function () {
+//     Route::get('/', ['as' => 'messaging', 'uses' => 'MessagesController@index']);
+//     Route::get('create', ['as' => 'messaging.create', 'uses' => 'MessagesController@create']);
+//     Route::post('/', ['as' => 'messaging.store', 'uses' => 'MessagesController@store']);
+//     Route::get('/{id}', ['as' => 'messaging.show', 'uses' => 'MessagesController@show']);
+//     Route::put('/{id}', ['as' => 'messaging.update', 'uses' => 'MessagesController@update']);
+// });
+
 //Messaging View
-Route::get('/messaging', function () {
+Route::get('/messages', function () {
     return view('messages');
+});
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+Route::get('/appointment', function () {
+    return view('appointment');
 });

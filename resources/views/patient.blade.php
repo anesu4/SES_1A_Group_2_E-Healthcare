@@ -1,56 +1,69 @@
 @include('layouts/header')
 
 <!DOCTYPE html>
-<body>
-    <head>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&callback=initMap"></script>
-        <!-- PLUGINS CSS STYLE -->
-        <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
-        <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
-        <link href="{{ asset('assets/plugins/listtyicons/style.min.css')}}" rel="stylesheet" />
-        <link href="{{ asset('assets/plugins/selectbox/select_option1.min.css')}}" rel="stylesheet" />
+<head>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&callback=initMap"></script>
+    <!-- PLUGINS CSS STYLE -->
+    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/listtyicons/style.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/selectbox/select_option1.min.css')}}" rel="stylesheet" />
 
-        <!-- Login and Registration Form Title and CSS -->
-        <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
-        <title>Account</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <div class="content">
-        <div class="hero-image"></div>
+    <!-- Login and Registration Form Title and CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content login-page">
         <div class="user-home">
             <div class="row">
                 <div class="user-name">
-                    <h3>Welcome User</h3></div>
+                    @guest
+                    @if (Route::has('register'))
+                    <h3>Welcome Guest!</h3>
+                    @endif
+                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
+                    @endguest
+                </div>
                 <div class="column">
-                    <div class="container">
+                    <div class="col-container">
                         <h3>Find Doctors</h3>
                         <div id="maps"></div>
                         <form action="">
-                            <input type="text" class="maps-search" id="search" placeholder="search"/>
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
                         </form>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="container">
+                    <div class="col-container">
                         <h3>Added Doctors</h3>
                         <div class="doctor-list">
                             <div class="doctor-obj">
-                            <a href="" ><h6>Dr. Exmample Name</h6></a>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                            </div>
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
                             <div class="doctor-obj">
-                            <a href="" ><h6>Dr. Exmample Name</h6></a>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                            </div>
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
                             <div class="doctor-obj">
-                            <a href=""><h6>Dr. Exmample Name</h6></a>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus soluta ab, dolores eum similique debitis nisi rem aliquam ratione quod repudiandae aspernatur, fugit perferendis animi reprehenderit fugiat quia quibusdam itaque!</p>
-                            </div>
+                            <a href=""><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+    </div>
+        <div class="row">
+        <div class="col-8">col-8</div>
+        <div class="col-4">col-4</div>
     </div>
 </body>
 <script>
