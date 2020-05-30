@@ -46,7 +46,7 @@
             <div class="form-group col-md-8">
             <form action="/action_page.php">
                 <label for="DOB">DOB:</label>
-                <input type="date" id="DOB" placeholder="DOB">
+                <input type="date" id="DOB" name="DOB">
                 </form>
             </div>
              <div class="form-group col-md-4">
@@ -57,21 +57,18 @@
                     <br>
             </form> 
             </div>
-            <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputMeicareNumber">Meicare Number</label>
                 <input type="MeicareNumber" class="form-control" id="MeicareNumber" placeholder="Meicare Number">
             </div>
-            <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-1">
                 <label for="Ref#">Ref#</label>
-                <input type="Ref#" class="form-control" id="Ref#" placeholder="Ref#">
+                <input type="Ref#" class="form-control" id="Ref#"placeholder="Ref#">
             </div>
-            <div class="form-row">
-               <div class="form-group col-md-4">
+               <div class="form-group col-md-5">
             <form action="/action_page.php">
                 <label for="Expiry Date">Expiry Date:</label>
-                <input type="date" class="form-control" id="Expiry Date" placeholder="Expiry Date">
+                <input type="date" id="Expiry Date" name="Expiry Date">
                 </form>
             </div>
               <div class="form-row">
