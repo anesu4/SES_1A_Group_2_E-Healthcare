@@ -1,4 +1,3 @@
-<?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!DOCTYPE html>
 <head>
     <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
@@ -155,21 +154,6 @@
             <label for="inputZip">Zip</label>
             <input type="text" class="form-control" id="inputZip">
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="form-group col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -177,5 +161,4 @@
 </body>
 <script>
     
-</script>
-<?php /**PATH C:\Users\Mahmoud\Desktop\SES 1A Healthcare\SES_1A_Group_2_E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/patient-form.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\Users\Mahmoud\Desktop\SES 1A Healthcare\SES_1A_Group_2_E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/patient-form.blade.php ENDPATH**/ ?>

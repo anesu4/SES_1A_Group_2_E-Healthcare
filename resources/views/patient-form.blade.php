@@ -1,4 +1,3 @@
-@include('layouts/header')
 <!DOCTYPE html>
 <head>
     <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
@@ -155,21 +154,6 @@
             <label for="inputZip">Zip</label>
             <input type="text" class="form-control" id="inputZip">
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="form-group col-md-12">
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
