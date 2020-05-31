@@ -1,49 +1,106 @@
 <?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!DOCTYPE html>
-<head>
-    <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
-    <!-- PLUGINS CSS STYLE -->
-    <link href="<?php echo e(asset('assets/plugins/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet" />
-    <link href="<?php echo e(asset('assets/plugins/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet" />
-    <link href="<?php echo e(asset('assets/plugins/listtyicons/style.min.css')); ?>" rel="stylesheet" />
-    <link href="<?php echo e(asset('assets/plugins/selectbox/select_option1.min.css')); ?>" rel="stylesheet" />
 
-    <!-- Login and Registration Form Title and CSS -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/style.css')); ?>">
-    <title>Account</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
-    <div class="content login-page">
-        <div class="user-home">
+    <div class="p-3 mb-2">
+        <div class="container-fluid">
             <div class="row">
-                <div class="user-name">
-                    <?php if(auth()->guard()->guest()): ?>
-                    <?php if(Route::has('register')): ?>
-                    <h3>Welcome Doctor!</h3>
-                    <?php endif; ?>
-                    <?php else: ?> <h3>Welcome <?php echo e(Auth::User()->name); ?>!</h3>
-                    <?php endif; ?>
-                </div>
-                <div class="column">
-                    <div class="col-container">
-                        <h3>Find Doctors</h3>                        
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                    <h3>Chats</h3>
+                    <div class="inbox-chat ">
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-block" style="height:75px; overflow:hidden;">
+                            <span class="">
+                                <h5 class="text-left">Dr Name</h5>
+                                <p class="text-left ">Hey, may I book an appointment for 12:00pm?</p>
+                            </span>
+                        </button>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="col-container">
-                        <h3>Patient meetings</h3>
-                        <div class="doctor-list">
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href=""><h6>Mr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <div class="">
+                        <h3>Dr. Example name</h3>
+                    </div>
+                    <div class="chat-history">
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
                         </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message in">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                        <div class="inbox-message out">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, tempora?</p>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-xs-8" >
+                                    <div class="text-center w-100"><input type="text" class="form-control" placeholder="enter message" >
+
+                                    </div>
+                                </div>
+                                <div class="col-xs-4" >
+                                    <button class="btn btn-primary" type="button ">Send</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

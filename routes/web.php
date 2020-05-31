@@ -21,9 +21,9 @@ Route::get('/', function () {
 
 // Doctor and Patient URL Pages
 //Route::get('/patient/{id}', function ($id) {return view('patient');});
-Route::get('/patient', 'PagesController@patient');
+Route::get('/patient', function () {return view('patient');});
 Route::get('/doctor', function () {return view('doctor');});
-Route::get('/messaging', 'PagesController@messaging');
+Route::get('/messaging', function () {return view('messages');});
 Route::get('/patient-form', function () {return view('patient-form');});
 Route::get('/messaging-display', function () {return view('messaging-display');});
 
