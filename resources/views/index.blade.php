@@ -1,175 +1,266 @@
-@include('layouts/header')
-@extends('layouts.app')
+@include('layouts.app')
+<head>
+    <style>
+        #maps {
+            height: 40%;
+            width: 100%;
+            
+        }
+        #floating-panel {
+            position: absolute;
+            top: 15%;
+            right: 0%;
+            width: 20%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto','sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+        #floating-panel {
+            margin-left: -52px;
+        }
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Login and Registration Form Design</title>
-        <link rel="stylesheet" href="assets/style.css"/>
-        <link href="{{ asset('css/bootstrap.min.css') }}"/>
-        <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/>
-        <link href=" {{ asset('img/background1.jpg') }}"/>
-    </head>
-    <div class="header">
-        <!--placeholder header-->
-        <h1>E-Healthcare</h1>
-        <h4>Better health</h4>
+    </style>
+</head>
+<body>
+    <div class="content login-page">
+        <div class="user-home">
+            <div class="row">
+                <div class="user-name">
+                    @guest
+                    @if (Route::has('register'))
+                    <h4>Welcome Guest!</h4>
+                    @endif
+                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
+                    @endguest
+                    <h3>Find Doctors</h3>
+                </div>  
+                        <!-- <form action="">
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                        </form> -->
+
+                <!-- <div class="column">
+                    <div class="col-container">
+                        <h3>Added Doctors</h3>
+                        <div class="doctor-list">
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href="" ><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                            <div class="doctor-obj">
+                            <a href=""><h6>Dr. Example Name</h6></a>
+                            <p>Lorem ipsum dolor</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+                <div id="floating-panel">
+                    <h4>Added Doctors</h4>
+                        <!-- <button id="drop" onclick="drop()">Drop Markers</button> -->
+                    </div>
+                <div id="maps">
+                        
+            </div>
+        </div>
     </div>
-    <body>
-        <div class="login-page">
-            <div class="form-box" id="form-box">
-                <div class="button-box">
-                    <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Login</button>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                </div>
-                <div class="form">
-                    <form id="login" class="input-group">
-                        <i class = "fa fa-user" ></i>
-                        <input type="text" class="input-field" id="email" placeholder="Email">{{ __('Login') }}</input>
-                        <i class="fa fa-lock"></i>
-                        <input type="password" class="input-field" id="password" placeholder="Password"/>
-                        <button type="submit" class="submit-btn" >Login</button>
-                    </form>
-                    <form id="register" class="input-group">
-                        <p>Are you a doctor or patient?</p>
-                        <div class="button-box2">
-                            <div id="btn2"></div>
-                            <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
-                            <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
-                        </div>
-                        <input type="text" class="input-field" placeholder="Email"/>
-                        <input type="password" class="input-field" placeholder="Password"/>
-                        <input type="password" class="input-field" placeholder="Confirm password"/>
-                        <input type="text" class="input-field" id="search-location" placeholder="Enter your location"/>
-                        <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
-                            <p>Upload doctor certification</p>
-                            <input type="file" id="certFile">
-                        </div>
-                        <button type="submit" class="submit-btn">Register</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="footer">
-            <footer>
-                This is just chillin here as a placeholder footer <!-- placeholder footer, doesnt do anything. check css -->
-            </footer>
-        </div>
-        <script>
-            //Acronyms IF = input field
-            //variables to switch login & register objects
-            var loginForm = document.getElementById("login");
-            var regForm = document.getElementById("register");
-            var toggleBtn = document.getElementById("btn");
-            var formBox = document.getElementById("form-box");
-            //register-form input fields. *fyi some of this code is pretty dodgy and basic, but it works
-            var toggleBtn2 = document.getElementById("btn2");
-            var certFileIF = document.getElementById("certFile-container");
-            var locationIF = document.getElementById("search-location");
+<script>
 
-            //boolean checks if doctor form is selected, false by default becacuse patient is selected
-            var doctorForm = false;
+    var locations = [
+        {lat: -33.8651430, lng: 151.206},
+        {lat: -33.8652, lng: 151.21},
+        {lat: -33.79, lng: 151.2091},
+        {lat: -33.84, lng: 151.2098}
+    ];
+    var names = ['John Smith', 'Nota Relnam', 'Faik Naem', 'Doctor Tim'];
+    var markers = [];
+    var map;
 
-            function register(){
-                //shift button and form to register;  login = Overflow:hidden; reduce form height
-                loginForm.style.left="-400px"
-                regForm.style.left="50px"
-                toggleBtn.style.left="96px"
-                //check if doctor is selected, without it the form will not extend to correct height
-                if(doctorForm){
-                    formBox.setAttribute("style","height:600px")
-                }
-                else {
-                    formBox.setAttribute("style","height:450px")
-                }
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('maps'), {
+          zoom: 12,
+          center: {lat: -33.8651430, lng: 151.209900},
+          streetViewControl: false,
+          rotateControl: false,
+          fullscreenControl: false,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
             }
-            function login(){
-                //shift button and form to login;  register = Overflow:hidden; extend form height
-                loginForm.style.left="50px"
-                regForm.style.left="500px"
-                toggleBtn.style.left="0px"
-                formBox.setAttribute("style","height:300px");
-            }
-            function patient(){
-                //toggle btn to highlight patient
-                toggleBtn2.style.left="0px"
-                //hide doctor input fields; reduces form height
-                locationIF.setAttribute("style","display:none");
-                certFileIF.setAttribute("style","display:none");
-                formBox.setAttribute("style","height:450px");
-                doctorForm = false;
-            }
-            function doctor(){
+          ]
 
-                //toggle btn to highlight doctor
-                toggleBtn2.style.left="96px"
+        });
+      }
+      function drop() {
+        clearMarkers();
+        for (var i = 0; i < locations.length; i++) {
+          addMarkerWithTimeout(locations[i], i * 200, i, names[i]);
+          
+        }
+    }
+    drop();
 
-                //show doctor input fields; extend form height
-                locationIF.setAttribute("style","display:inline");
-                certFileIF.setAttribute("style","display:inline-block");
-                formBox.setAttribute("style","height:600px");
-                doctorForm = true;
-            }
-        </script>
-    </body>
+    function createMarker(point,map,index,name) {
+        var markerOpts = {
+            position: point,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: name
+        };
 
-        <!-- //BootStrap Code for Beautified Form - Anesu 22/04 -->
-        <!-- <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-            </div>
-            <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
-            </div>
-            <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-                <option>NSW</option>
-                <option>WA</option>
-            </select>
-            </div>
-            <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                Check me out
-            </label>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-        </form> -->
+        var marker = new google.maps.Marker(markerOpts);
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js">
-        </script>
-        <script>
-            $('.message a').click(function(){
-                $('form').animate({height: "toggle", opcatity: "toggle"}, "slow")
-            })
-        </script>
-    </body>
-</html>
+        google.maps.event.addListener(marker, 'click', function() {
+            window.alert(marker.getTitle());
+        });
+    }
+
+    function addMarkerWithTimeout(position, timeout, index,name) {
+        clearMarkers();
+        window.setTimeout(function() {
+        markers.push(createMarker(position,map,index,name));
+        }, timeout);
+        //window.alert(index);
+    }
+
+      function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
+
+
+
+
+
+// function initMap() {
+//     var location =	{lat: -33.868820, lng: 151.209290};
+//     var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 12,
+//     center: location
+// });
+
+// var marker = new google.maps.Marker({
+//     position: location,
+//     map: map
+//     //animation: google.maps.Animation.DROP,
+// });
+// marker.addListener('click', toggleBounce);
+
+// function toggleBounce() {
+//     window.alert(5);
+// //   if (marker.getAnimation() !== null) {
+// //     marker.setAnimation(null);
+// //   } else {
+// //     marker.setAnimation(google.maps.Animation.BOUNCE);
+// //   }
+// }
+
+
+// var searchbox = new google.maps.places.SearchBox(document.getElementById('search'));
+
+// google.maps.event.addListener(searchbox, 'places_changed', function(){
+
+//     var places = searhbox.getPlaces();
+//     var bounds = new google.maps.LatLngBounds();
+//     var i, place;
+
+//     for(i=0; place=places[i];i++){
+//         bounds.extend(place.geometry.location);
+//         marker.setPosition(place.geometry.location);
+//     }
+
+//     map.fitBounds(bounds);
+//     map.setZoom(15);
+
+// });
+// }
+// google.maps.event.addDomListener(window,'load', initMap);
+</script>
+<!-- google maps api key -->
+<script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap">
+    </script>
+
+</body>
