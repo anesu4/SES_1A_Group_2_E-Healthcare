@@ -39,9 +39,9 @@
                     @endguest
                     <h3>Find Doctors</h3>
                 </div>  
-                        <!-- <form action="">
-                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
-                        </form> -->
+                  <!-- <form action="">
+                      <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                  </form> -->
 
                 <!-- <div class="column">
                     <div class="col-container">
