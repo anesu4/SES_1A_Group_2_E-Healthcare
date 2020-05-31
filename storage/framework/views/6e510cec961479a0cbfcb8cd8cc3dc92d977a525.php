@@ -1,12 +1,5 @@
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html>
-    <head>
-        <title>Login and Registration Form Design</title>
-        <link rel="stylesheet" href="assets/style.css"/>
-        <link href="<?php echo e(asset('css/bootstrap.min.css')); ?>"/>
-        <link href=" <?php echo e(asset('plugins/font-awesome/font-awesome.min.css')); ?>"/>
-        <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
-    </head>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
@@ -15,7 +8,6 @@
                     <button type="button" class="toggle-btn" onclick="login()"><?php echo e(__('Login')); ?></button>
                     <button type="button" class="toggle-btn" onclick="register()"><?php echo e(__('Register')); ?></button>
                 </div>
-                
                 <div>
                     <form id="login" class="input-group" method="POST" action="<?php echo e(route('login')); ?>">
                         <?php echo csrf_field(); ?>

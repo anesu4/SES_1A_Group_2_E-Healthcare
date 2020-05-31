@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\Doctor as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Doctor extends Authenticatable
+class Doctors extends Authenticatable
 {
     use Notifiable;
+
+    protected $guard = 'doctors';
+    protected $table = 'doctor';
 
     /**
      * The attributes that are mass assignable.
@@ -37,5 +40,5 @@ class Doctor extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+
 }

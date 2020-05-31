@@ -2,9 +2,9 @@
 <head>
     <style>
         #maps {
-            height: 40%;
+            height: 75%;
             width: 100%;
-            
+
         }
         #floating-panel {
             position: absolute;
@@ -38,7 +38,7 @@
                     @else <h3>Welcome {{Auth::User()->name}}!</h3>
                     @endguest
                     <h3>Find Doctors</h3>
-                </div>  
+                </div>
                         <!-- <form action="">
                             <input type="text" class="maps-search" id="search" placeholder="Search"/>
                         </form> -->
@@ -65,7 +65,7 @@
                         <!-- <button id="drop" onclick="drop()">Drop Markers</button> -->
                     </div>
                 <div id="maps">
-                        
+
             </div>
         </div>
     </div>
@@ -175,7 +175,7 @@
         clearMarkers();
         for (var i = 0; i < locations.length; i++) {
           addMarkerWithTimeout(locations[i], i * 200, i, names[i]);
-          
+
         }
     }
     drop();
@@ -259,7 +259,7 @@
 // google.maps.event.addDomListener(window,'load', initMap);
 </script>
 <!-- google maps api key -->
-<script async defer 
+<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap">
     </script>
 
