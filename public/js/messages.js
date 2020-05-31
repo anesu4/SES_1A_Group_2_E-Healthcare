@@ -1,44 +1,41 @@
-//require('../../../resources/js/bootstrap');
+//require('../../../resources/js/bootstrap'); // im too scared to delete this incase it needs to come bak :(
 
+// loads the buttons when the browser loads
 window.onload = function(){
-    createButtons();
+    getObj();
 }
-
-var doctorNames =  [
-    "Dr. Aiden Boal",
-    "Dr. Bryan Lifschitz",
-    "Dr. Ethel Podany",
-    "Dr. Fabian Sanderford",
-    "Dr. Gage Wildridge"
-]
-
-class Doctor {
-    constructor(DrName, message) {
-        this.name = DrName;
-        this.messagesHistory = message;
-        //console.log(messagesHistory);
-        messageIn(message);
-
-        //this.button = button;
-        // button.onclick = loadMessages(name);
+// stores the doctors names and their messages
+var doctors = [
+    {
+        name: "Dr. Aiden Boal",
+        messageHistory: "Hi How can I help you?",
+    },
+    {
+        name: "Dr. Bryan Lifschitz",
+        messageHistory: "How can I be of service?",
+    },
+    {
+        name: "Dr. Ethel Podany",
+        messageHistory: "Can I help you with anything?",
+    },
+    {
+        name: "Dr. Fabian Sanderford",
+        messageHistory: "How are you?",
+    },
+    {
+        name: "Dr. Gage Wildridge",
+        messageHistory: "Hi my name is Dr. Wildridge, how can I help?",
     }
-}
-
-
-function createButtons() {
-    var doctors = [
-        new Doctor("Dr. Aiden Boal","Hi how are you?",),
-        new Doctor("Dr. Bryan Lifschitz","How can I help you?"),
-        new Doctor("Dr. fdsgfdsg Podany","Wanna go fam"),
-        new Doctor("Dr. Ethegfdsgfdgfdsgl Podany","Wanna go fam"),
-        new Doctor("Dr. Ethel gfdsgfdsgdfs","fgsgsfdgsdd")
 ]
-    var buttons =  [
-        new InboxButton(doctors[0].name),
-        new InboxButton(doctors[1].name),
-        new InboxButton(doctors[2].name),
-        new InboxButton(doctors[3].name),
-        new InboxButton(doctors[4].name)
+
+// create the buttons
+function getObj() {
+    return buttons =  [
+        new InboxButton(doctors[0].name, doctors[0].messageHistory),
+        new InboxButton(doctors[1].name, doctors[1].messageHistory),
+        new InboxButton(doctors[2].name, doctors[2].messageHistory),
+        new InboxButton(doctors[3].name, doctors[3].messageHistory),
+        new InboxButton(doctors[4].name, doctors[4].messageHistory)
     ]
 }
 
@@ -48,32 +45,39 @@ var patientMessages =  ["Hi, I would like to book an appointment", "are you avai
 
 //create buttons
 class InboxButton {
-    constructor(name) {
-        //asssign on clicks
-        this.btnName = name;
-        //this.messagePreview = messagePreview;
+    constructor(name, message) {
         // create elements
         var btnParent = document.createElement("button");
         var btnSpan = document.createElement("span");
         var btnH = document.createElement("h5");
-        //var btnP = document.createElement("p");
-        //var textNode = document.createTextNode(name);
-        //this.messagePreview = document.createTextNode(messagePreview);
-        // attach stylesheets
+
+        btnParent.addEventListener('click', function() { 
+            document.getElementById("receieverName").innerHTML=name;
+            loadMessage(message);
+        }, false);
+
+        // attach css
         btnParent.className = "btn btn-block";
         btnParent.setAttribute("style", "height:75px; overflow:hidden;");
         btnH.className = "text-left";
-        //btnP.className = "text-left";
+        
         //append elements
         btnParent.appendChild(btnSpan);
         btnSpan.appendChild(btnH);
-        //btnSpan.appendChild(btnP);
         btnH.innerHTML = name;
-        //btnP.innerHTML = "doctors[0].messagesHistory";
         document.getElementById("inbox").appendChild(btnParent);
     }
 }
-
+// loads messages existing in the doctors array
+var hasHistory = false;
+function loadMessage(message){
+    if(hasHistory){
+        document.getElementById("history").innerHTML = "";
+    }
+    messageIn(message);
+    hasHistory = true;
+}
+// creates messages to recieve
 function messageIn(message){
     var messageDiv = document.createElement("div"); // create <div>
     messageDiv.style.clear = 'both';
@@ -87,21 +91,54 @@ function messageIn(message){
     //append message div to chat history
     document.getElementById("history").appendChild(messageDiv);
 }
-
-function messageOut(message){
+// creates messages to be sent
+function messageOut(message,file){
     var messageDiv = document.createElement("div"); // create <div>
     messageDiv.style.clear = 'both';
     messageDiv.className = "inbox-message out";
     // create text for message div
     var messageP = document.createElement("p"); //create <p> tag
+
+    // if file exists, create file for message div
+    if(file){
+        console.log("fdsfs");
+        var a = document.createElement("a");
+        a.appendChild(document.createTextNode(message));
+        a.href= file;
+        a.download = file;
+        //append file to message div
+        messageP.appendChild(a);
+        messageDiv.appendChild(a);
+    }
+    
     // append text to message div
     messageDiv.appendChild(messageP); // add <p> to <div>
     messageP.appendChild(document.createTextNode(message)); // insert text into <p>
     document.getElementById("history").appendChild(messageDiv); // add message <div> to <div class="chat-history" id="history">
 }
-
+// handles the messages to be sent
 function sendMessage(){
-    messageOut(document.getElementById("textOut").value);
-    document.getElementById("textOut").value=""
+    var file = document.getElementById("sendFileBtn");
+    if(document.getElementById("textOut").value != "" && file.value != ""){
+        messageOut(document.getElementById("textOut").value, file);
+        document.getElementById("textOut").value="";
+    }
+    if(document.getElementById("textOut").value != ""){
+        messageOut(document.getElementById("textOut").value);
+        document.getElementById("textOut").value="";
+    }
+    
+    if(file.value != ""){ // if file is not empty
+        document.getElementById("sendFileBtn").value = ""; // reset file to nothing
+        document.getElementById("fileName").innerHTML= ""; // reset span to nothing
+    }
 }
+// sets the name of input file
+var file = document.getElementById("sendFileBtn").onchange = function(){ // checks for change in file selection
+    var filename = document.getElementById("sendFileBtn").value.split(/(\\|\/)/g).pop(); // gets rid of path /../../
+    if(filename.length > 7) filename = filename.substring(0,7); // sets length to appropriate size so css is good
+    document.getElementById("fileName").innerHTML= filename; // set span to filename
+    document.getElementById("textOut").value = document.getElementById("sendFileBtn").value.split(/(\\|\/)/g).pop();;
+}
+
 

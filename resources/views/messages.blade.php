@@ -13,24 +13,30 @@
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <div class="">
-                        <h3 id="doctor-name">Dr. Example name</h3>
+                        <h3 id="receieverName">receiver name</h3>
                     </div>
                     <div class="chat-history" id="history">
                         {{-- messages.js handles the messages displayed here --}}
                     </div>
                     <div class="container-fluid">
-                        <form action="">
-                            <div class="row">
-                                <div class="col-xs-8" >
-                                    <div class="text-center w-100">
-                                        <input type="text" class="form-control" id="textOut" placeholder="enter message">
-                                    </div>
-                                </div>
-                                <div class="col-xs-4" >
-                                    <button class="btn btn-primary" id="sendTxtBtn" onclick="sendMessage()" type="button" >Send</button>
+                        <div class="row">
+                            <div class="col-xs-8" >
+                                <div class="text-center w-100">
+                                    <input type="text" class="form-control" id="textOut" placeholder="enter message">
                                 </div>
                             </div>
-                        </form>
+                            <div class="col-xs-4" >
+                                <button class="btn btn-primary" onclick="sendMessage()" type="button" >
+                                    <span>Send</span>
+                                    <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                                <div class="upload-file-container">
+                                    <span id="fileName"></span>
+                                    <input class="upload-file" id="sendFileBtn" type="file">
+                                    <span class="glyphicon glyphicon-picture"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

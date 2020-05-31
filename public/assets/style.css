@@ -287,6 +287,33 @@
     float: left;
 }
 
+.upload-file{
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+}
+
+.upload-file-container{
+    padding:6px 10px ;
+    max-width: 120px;
+    max-height: 34px;
+    background:#00ad2d;
+    vertical-align: middle;
+    border:1px solid #00ad2d;
+    position:relative;
+    color:#fff;
+    border-radius:5px;
+    text-align:center;
+    display: inline-block;
+    overflow: hidden;
+}
+
 .inbox-message p{
     margin: 0px;
 }
