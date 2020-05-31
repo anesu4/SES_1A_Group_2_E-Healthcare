@@ -8,13 +8,6 @@
                     <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }}</button>
                     <button type="button" class="toggle-btn" onclick="register()">{{ __('Register') }}</button>
                 </div>
-                {{-- <form id="login" class="input-group"  method="POST" action="{{ route('login') }}">
-                    <i class = "fa fa-user" ></i>
-                    <input type="text" class="input-field" id="email" placeholder="Email"/>
-                    <i class="fa fa-lock"></i>
-                    <input type="password" class="input-field" id="password" placeholder="Password"/>
-                    <button type="submit" class="submit-btn" >{{ __('Login') }}</button>
-                </form> --}}
                 <div>
                     <form id="login" class="input-group" method="POST" action="{{ route('login') }}">
                         @csrf
