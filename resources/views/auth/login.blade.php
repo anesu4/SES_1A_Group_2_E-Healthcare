@@ -1,12 +1,5 @@
 @include('layouts.app')
 <html>
-    <head>
-        <title>Login and Registration Form Design</title>
-        <link rel="stylesheet" href="assets/style.css"/>
-        <link href="{{ asset('css/bootstrap.min.css') }}"/>
-        <link href=" {{ asset('plugins/font-awesome/font-awesome.min.css') }}"/>
-        <link href=" {{ asset('img/background1.jpg') }}"/>
-    </head>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
