@@ -22,10 +22,10 @@
             <label for="inputTitle">Title</label>
             <select id="inputTitle" class="form-control">
                 <option selected>...</option>
-                <option>Mr</option> 
-                <option>Mrs</option> 
-                <option>Miss</option> 
-                <option>Dr</option>
+                <option name="mr">Mr</option> 
+                <option name="mrs">Mrs</option> 
+                <option name="miss">Miss</option> 
+                <option name="dr">Dr</option>
             </select>
             </div>
            <div class="form-row">
