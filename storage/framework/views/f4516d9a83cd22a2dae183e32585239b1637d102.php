@@ -8,9 +8,9 @@
                 <div class="user-name">
                     <?php if(auth()->guard()->guest()): ?>
                     <?php if(Route::has('register')): ?>
-                    <h4>Welcome Doctor!</h4>
+                    <h4>Welcome <?php echo e(Auth::Doctors()->name); ?></h4>
                     <?php endif; ?>
-                    <?php else: ?> <h3>Welcome <?php echo e(Auth::User()->name); ?>!</h3>
+                    <?php else: ?> <h3>Welcome <?php echo e(Auth::Doctors()->name); ?>!</h3>
                     <?php endif; ?>
                     <h3>View Messages</h3>
                 </div>

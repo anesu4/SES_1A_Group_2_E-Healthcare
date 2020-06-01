@@ -28,7 +28,7 @@
                     @if (Route::has('register'))
                     <h4>Welcome Doctor!</h4>
                     @endif
-                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
+                    @else <h3>Welcome {{Auth::Doctors()->name}}!</h3>
                     @endguest
                     <h3>View Messages</h3>
                 </div>
