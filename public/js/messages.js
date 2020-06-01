@@ -160,7 +160,7 @@ var file = document.getElementById("sendFileBtn").onchange = function(event){ //
         };
         reader.readAsDataURL(input.files[0]);
 
-        messageOut(x);
+        //messageOut(x);
 
         // listen for delete button press
         document.getElementById("removeFileBtn").addEventListener("click", function(){
@@ -168,7 +168,6 @@ var file = document.getElementById("sendFileBtn").onchange = function(event){ //
             x.src="";
           });
     }
-    
 }
 // delete file selected
 var isDeleteFilePressed = false;
