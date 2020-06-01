@@ -173,7 +173,7 @@
             position: point,
             map: map,
             animation: google.maps.Animation.DROP,
-            label: name,
+            label: name.charAt(0),
             title: name
         };
 
