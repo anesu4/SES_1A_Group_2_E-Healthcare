@@ -1,7 +1,4 @@
 <?php echo $__env->make('layouts/header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<!DOCTYPE html>
-
-<body>
     <div class="p-3 mb-2">
         <div class="container-fluid">
             <div class="row">
@@ -46,6 +43,5 @@
             </div>
         </div>
     </div>
-</body>
 <script src="/js/messages.js"></script>
 <?php /**PATH D:\Git Repo\SES_1A_Group_2_E-Healthcare\resources\views/messages.blade.php ENDPATH**/ ?>

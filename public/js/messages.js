@@ -77,7 +77,7 @@ function loadMessage(message){
     messageIn(message);
     hasHistory = true;
 }
-// creates messages to recieve
+// creates message div to recieve
 function messageIn(message){
     var messageDiv = document.createElement("div"); // create <div>
     messageDiv.style.clear = 'both';
@@ -91,7 +91,7 @@ function messageIn(message){
     //append message div to chat history
     document.getElementById("history").appendChild(messageDiv);
 }
-// creates messages to be sent
+// creates message div to be sent
 function messageOut(message,file){
     var messageDiv = document.createElement("div"); // create <div>
     messageDiv.style.clear = 'both';
@@ -128,17 +128,73 @@ function sendMessage(){
         document.getElementById("textOut").value="";
     }
     
-    if(file.value != ""){ // if file is not empty
-        document.getElementById("sendFileBtn").value = ""; // reset file to nothing
-        document.getElementById("fileName").innerHTML= ""; // reset span to nothing
+    if(file.value != ""){ // if file is not empty   
+        deleteFile();
     }
 }
 // sets the name of input file
-var file = document.getElementById("sendFileBtn").onchange = function(){ // checks for change in file selection
+var file = document.getElementById("sendFileBtn").onchange = function(event){ // checks for change in file selection
     var filename = document.getElementById("sendFileBtn").value.split(/(\\|\/)/g).pop(); // gets rid of path /../../
     if(filename.length > 7) filename = filename.substring(0,7); // sets length to appropriate size so css is good
     document.getElementById("fileName").innerHTML= filename; // set span to filename
-    document.getElementById("textOut").value = document.getElementById("sendFileBtn").value.split(/(\\|\/)/g).pop();;
+    //document.getElementById("textOut").value = document.getElementById("sendFileBtn").value.split(/(\\|\/)/g).pop();
+
+    // awaken the file remove button
+    if(file){
+        // if file is selected then open the delete button
+        document.getElementById("removeFileBtn").setAttribute("style", " opacity: 100; cursor: pointer; ");
+        document.getElementById("removeFileBtn").disabled = false;
+
+        // read file input
+        var input = event.target;
+        var reader = new FileReader();
+        // create img tag to upload file
+        var x = document.createElement("img");
+        x.setAttribute("style","width:100px;float: right;")
+        reader.onload = function(){
+            var dataURL = reader.result;
+            //document.getElementById('output').src = dataURL;
+            x.className=""
+            x.src = dataURL;
+            document.getElementById("history").appendChild(x);
+        };
+        reader.readAsDataURL(input.files[0]);
+
+        messageOut(x);
+
+        // listen for delete button press
+        document.getElementById("removeFileBtn").addEventListener("click", function(){
+            document.getElementById('output').src = "";
+            x.src="";
+          });
+    }
+    
 }
+// delete file selected
+var isDeleteFilePressed = false;
+function deleteFile(){
+    if(file){
+        document.getElementById("sendFileBtn").value = ""; // reset file to nothing
+        document.getElementById("fileName").innerHTML= ""; // reset span to nothing
+        document.getElementById("removeFileBtn").setAttribute("style", "opacity: 0; cursor: default; ");
+        document.getElementById("removeFileBtn").disabled = true;
+        isDeleteFilePressed = true;
+    }
+}
+
+// function onFileSelected(event) {
+//     var selectedFile = event.target.files[0];
+//     var reader = new FileReader();
+  
+//     var imgtag = document.getElementById("myimage");
+//     imgtag.title = selectedFile.name;
+  
+//     reader.onload = function(event) {
+//       imgtag.src = event.target.result;
+//     };
+  
+//     reader.readAsDataURL(selectedFile);
+//   }
+
 
 
