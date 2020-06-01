@@ -183,6 +183,9 @@
             window.alert(marker.getTitle());
             messageIn(marker.getTitle());
         });
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            //messageIn(marker.getTitle());
+        });
     }
 
     function addMarkerWithTimeout(position, timeout, index,name) {
