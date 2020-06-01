@@ -14,7 +14,7 @@
         <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
     <div class="header">
-        <!--placeholder header-->
+        
         <div class="logo">
             <a href="<?php echo e(url('/')); ?>"><h2>E-Healthcare</h2></a>
             <h4 style="color:white;">Your Online Healthcare Provider</h4>

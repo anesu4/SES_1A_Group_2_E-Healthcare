@@ -8,10 +8,10 @@
             <label for="inputTitle">Title</label>
             <select id="inputTitle" class="form-control">
                 <option selected>...</option>
-                <option>Mr</option> 
-                <option>Mrs</option> 
-                <option>Miss</option> 
-                <option>Dr</option>
+                <option name="mr">Mr</option> 
+                <option name="mrs">Mrs</option> 
+                <option name="miss">Miss</option> 
+                <option name="dr">Dr</option>
             </select>
             </div>
            <div class="form-row">
@@ -53,7 +53,7 @@
                <div class="form-group col-md-5">
             <form action="/action_page.php">
                 <label for="Expiry Date">Expiry Date:</label>
-                <input type="date" id="Expiry Date" name="Expiry Date">
+                <input type="date" class="form-control" id="Expiry Date" name="Expiry Date">
                 </form>
             </div>
               <div class="form-row">
