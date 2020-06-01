@@ -53,7 +53,7 @@
                <div class="form-group col-md-5">
             <form action="/action_page.php">
                 <label for="Expiry Date">Expiry Date:</label>
-                <input type="date" id="Expiry Date" name="Expiry Date">
+                <input type="date" class="form-control" id="Expiry Date" name="Expiry Date">
                 </form>
             </div>
               <div class="form-row">
