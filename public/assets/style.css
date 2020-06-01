@@ -318,6 +318,14 @@
     margin: 0px;
 }
 
+.btn-hide{
+    background-color: rgb(255, 52, 52);
+    color: white;
+    opacity: 0;
+    transition: 1s;
+    cursor: default;
+}
+
 .user-name{
     max-height: 100px;
     text-align: left;
