@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <script type="text/javascript"async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap" ></script>
-    <!-- PLUGINS CSS STYLE -->
-    <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/listtyicons/style.min.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/selectbox/select_option1.min.css')}}" rel="stylesheet" />
-
-    <!-- Login and Registration Form Title and CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/style.css')}}">
-    <title>Account</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+@include('layouts/header')
     <div class="container container-small"> 
         <div>
             <h3>Patient Forms</h3>
@@ -158,7 +144,6 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-</body>
 <script>
     
 </script>
