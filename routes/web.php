@@ -22,7 +22,7 @@ Route::get('/', function () {
 // Doctor and Patient URL Pages
 //Route::get('/patient/{id}', function ($id) {return view('patient');});
 Route::get('/patient', function () {return view('patient');});
-Route::get('/doctor', function () {return view('doctor');});
+// Route::get('/doctor', function () {return view('doctor');});
 Route::get('/messaging', function () {return view('messages');});
 Route::get('/patient-form', function () {return view('patient-form');});
 Route::get('/messaging-display', function () {return view('messaging-display');});
@@ -44,30 +44,43 @@ Route::get('/messaging-display', function () {return view('messaging-display');}
 // Route::get('/dashboard', 'DashboardController@index');
 // Route::get('/home', 'DashboardController@index')->name('home');
 
-Route::group(['middleware' => ['web']], function () {
-    Route::auth();
-    Route::get('/', 'DashboardController@index');
+// Route::group(['middleware' => ['web']], function () {
+//     Route::auth();
 
-});
 
-// messaging
-// Route::group(['prefix' => 'messages'], function () {
-//     Route::get('/', ['as' => 'messaging', 'uses' => 'MessagesController@index']);
-//     Route::get('create', ['as' => 'messaging.create', 'uses' => 'MessagesController@create']);
-//     Route::post('/', ['as' => 'messaging.store', 'uses' => 'MessagesController@store']);
-//     Route::get('/{id}', ['as' => 'messaging.show', 'uses' => 'MessagesController@show']);
-//     Route::put('/{id}', ['as' => 'messaging.update', 'uses' => 'MessagesController@update']);
 // });
 
-//Messaging View
-Route::get('/messages', function () {
-    return view('messages');
+Route::get('/', 'DashboardController@index');
+
+// messaging
+Route::group(['prefix' => 'messages'], function () {
+    Route::get('/', ['as' => 'messaging', 'uses' => 'MessagesController@index']);
+    Route::get('create', ['as' => 'messaging.create', 'uses' => 'MessagesController@create']);
+    Route::post('/', ['as' => 'messaging.store', 'uses' => 'MessagesController@store']);
+    Route::get('/{id}', ['as' => 'messaging.show', 'uses' => 'MessagesController@show']);
+    Route::put('/{id}', ['as' => 'messaging.update', 'uses' => 'MessagesController@update']);
 });
+
+//Messaging View
+// Route::get('/messages', function () {
+//     return view('messages');
+// });
 
 Route::get('/form', function () {
     return view('form');
 });
 
+
 Route::get('/appointment', function () {
     return view('appointment');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Doctor Login Information
+
+Route::group(['prefix' => 'doctors'], function () {
+    Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctors.login');
+    Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctors.login.submit');
+    Route::get('/', 'DoctorController@index')->name('doctors.dashboard');
 });

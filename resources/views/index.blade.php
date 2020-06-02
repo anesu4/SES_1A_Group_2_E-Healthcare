@@ -4,7 +4,7 @@
         #maps {
             height: 74%;
             width: 100%;
-            
+
         }
         #floating-panel {
             position: absolute;
@@ -38,7 +38,10 @@
                     @else <h3>Welcome {{Auth::User()->name}}!</h3>
                     @endguest
                     <h3>Find Doctors</h3>
-                </div>  
+                </div>
+                        <!-- <form action="">
+                            <input type="text" class="maps-search" id="search" placeholder="Search"/>
+                        </form> -->
 
             </div>
                 <div id="floating-panel">
@@ -49,7 +52,7 @@
                       </div>
                     </div>
                 <div id="maps">
-                        
+
             </div>
         </div>
     </div>
@@ -62,7 +65,7 @@
         {lat: -33.84, lng: 151.2098},
         {lat: -33.9, lng: 149.6},
         {lat: -35.9, lng: 149.2}
-        
+
     ];
     var names = ['Aiden Boal', 'Bryan Lifschitz', 'Ethel Podany', 'Fabian Sanderford', 'Gage Wildridge','Dr Tim'];
     var markers = [];
@@ -163,7 +166,7 @@
         clearMarkers();
         for (var i = 0; i < locations.length; i++) {
           addMarkerWithTimeout(locations[i], i * 200, i, names[i]);
-          
+
         }
     }
     drop();
@@ -209,7 +212,7 @@
         messageDiv.className = "inbox-message in";
         // create text for message div
         var messageP = document.createElement("p"); //create <p> tag
-        
+
         // append text to message div
         messageDiv.appendChild(messageP); // add <p> to <div>
         messageP.appendChild(document.createTextNode(message)); // insert text into <p>
@@ -266,7 +269,7 @@
 // google.maps.event.addDomListener(window,'load', initMap);
 </script>
 <!-- google maps api key -->
-<script async defer 
+<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZr8y9YuOF9eQhxoC_P70V73zuJjFbkc&libraries=places&callback=initMap">
     </script>
 
