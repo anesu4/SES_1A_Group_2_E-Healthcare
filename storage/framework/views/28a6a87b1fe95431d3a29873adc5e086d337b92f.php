@@ -14,20 +14,20 @@
         <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
     <div class="header">
-        <!--placeholder header-->
+        
         <div class="logo">
             <a href="<?php echo e(url('/')); ?>"><h2>E-Healthcare</h2></a>
-            <h4 style="color:white;">Better Health, Online</h4>
+            <h4 style="color:white;">Your Online Healthcare Provider</h4>
         </div>
         <div class="navbar">
             <a href="/">Home</a>
-            <a href="">Appointments</a>
-            <a href="/messages">Messaging</a>
+            <a href="/appointment">Appointments</a>
+            <a href="/messaging">Messaging</a>
             <div class="nav-dropdown">
                 <?php if(Route::has('register')): ?>
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
                 <?php else: ?>
-                <button class="drop-btn"><?php echo e(Auth::user()->name); ?> <i class="fa fa-caret-down"></i></button>
+                <button class="drop-btn"><?php echo e(Auth::user()->name); ?> <img src="https://picsum.photos/70" alt="avatar"></button>
                 <?php endif; ?>
                 <div class="nav-dropdown-content">
                     <a href="">Account</a>
@@ -42,6 +42,7 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                             </a>
+                            <a class="nav-link" href="/patient-form">Patient Forms</a>
 
                             <div>
                                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
