@@ -46,6 +46,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/messaging', function () {return view('messages');});
     Route::get('/patient-form', function () {return view('patient-form');});
     Route::get('/messaging-display', function () {return view('messaging-display');});
+    Route::get('/dd', function () {return view('dd');});
     Route::get('/form', function () {
         return view('form');
     });
@@ -80,3 +81,6 @@ Route::group(['prefix' => 'doctors'], function () {
     Route::get('/register', 'Auth\DoctorRegisterController@showRegistrationForm')->name('doctors.register');
     Route::post('/register', 'Auth\DoctorRegisterController@register')->name('doctors.register.submit');
 });
+
+
+
