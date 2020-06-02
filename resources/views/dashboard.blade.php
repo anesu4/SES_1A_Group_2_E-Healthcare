@@ -55,7 +55,7 @@
                     @if (Route::has('register'))
                     <h4>Welcome Guest!</h4>
                     @endif
-                    @else <h3>Welcome {{Auth::User()->name}}!</h3>
+                    @else <h3>Welcome!</h3>
                     @endguest
                     <h3>Find Doctors</h3>
                 </div>
@@ -87,7 +87,7 @@
         {lat: -35.9, lng: 149.2}
 
     ];
-    var names = ['John Smith', 'Nota Relnam', 'Faik Naem', 'Doctor Tim', 'Dr Bingo','wow'];
+    var names = ['Aiden Boal', 'Bryan Lifschitz', 'Ethel Podany', 'Fabian Sanderford', 'Gage Wildridge','Dr Tim'];
     var markers = [];
     var map;
     var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
@@ -203,7 +203,7 @@
         var marker = new google.maps.Marker(markerOpts);
 
         google.maps.event.addListener(marker, 'click', function() {
-            window.alert(marker.getTitle());
+            //window.alert(marker.getTitle());
             messageIn(marker.getTitle());
         });
         google.maps.event.addListener(marker, 'mouseover', function() {
