@@ -77,4 +77,6 @@ Route::group(['prefix' => 'doctors'], function () {
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctors.login');
     Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctors.login.submit');
     Route::get('/', 'DoctorController@index')->name('doctors.dashboard');
+    Route::get('/register', 'Auth\DoctorRegisterController@showRegistrationForm')->name('doctors.register');
+    Route::post('/register', 'Auth\DoctorRegisterController@register')->name('doctors.register.submit');
 });
