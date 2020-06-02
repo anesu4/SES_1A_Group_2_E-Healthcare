@@ -64,7 +64,7 @@
         {lat: -35.9, lng: 149.2}
         
     ];
-    var names = ['John Smith', 'Nota Relnam', 'Faik Naem', 'Doctor Tim', 'Dr Bingo','wow'];
+    var names = ['Aiden Boal', 'Bryan Lifschitz', 'Ethel Podany', 'Fabian Sanderford', 'Gage Wildridge','Dr Tim'];
     var markers = [];
     var map;
     var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
