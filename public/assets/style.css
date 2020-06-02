@@ -69,6 +69,15 @@
     position: absolute;
 }
 
+.patient-page{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(img/Patient-Role.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+}
+
 .form-box{
     width: 380px;
     height: 450px;

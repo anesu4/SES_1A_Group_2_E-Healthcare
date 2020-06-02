@@ -1,7 +1,7 @@
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <html>
     <body>
-        <div class="login-page">
+        <div class="patient-page">
             <div class="form-box" id="form-box">
                 <div>
                     <h4 class="text-center">Are you a doctor or patient?</h4>

@@ -1,7 +1,7 @@
 @include('layouts.app')
 <html>
     <body>
-        <div class="login-page">
+        <div class="patient-page">
             <div class="form-box" id="form-box">
                 <div>
                     <h4 class="text-center">Are you a doctor or patient?</h4>
