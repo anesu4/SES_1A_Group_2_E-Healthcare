@@ -3,15 +3,12 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Doctors as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Doctors extends Authenticatable
 {
     use Notifiable;
-
-    protected $guard = 'doctors';
-    protected $table = 'doctor';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +16,7 @@ class Doctors extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'email', 'password', 'mobile', 'address',
     ];
 
     /**
@@ -31,6 +28,7 @@ class Doctors extends Authenticatable
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -40,5 +38,21 @@ class Doctors extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'doctor';
 
+    protected $guard = 'doctors';
+
+    public static function getDoctorDetail($userID)
+    {
+        if(isset($userID)){
+            $userInfo = User::where('id',$userID)->get();
+            return $userInfo;
+        }
+    }
 }
+

@@ -14,7 +14,7 @@
         <link href=" <?php echo e(asset('img/background1.jpg')); ?>"/>
     </head>
     <div class="header">
-        <!--placeholder header-->
+        
         <div class="logo">
             <a href="<?php echo e(url('/')); ?>"><h2>E-Healthcare</h2></a>
             <h4 style="color:white;">Your Online Healthcare Provider</h4>
@@ -22,7 +22,7 @@
         <div class="navbar">
             <a href="/">Home</a>
             <a href="/appointment">Appointments</a>
-            <a href="/messages">Messaging</a>
+            <a href="/messaging">Messaging</a>
             <div class="nav-dropdown">
                 <?php if(Route::has('register')): ?>
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>
