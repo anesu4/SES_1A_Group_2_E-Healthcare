@@ -4,14 +4,14 @@
 <head>
     <style>
         #maps {
-            height: 75%;
+            height: 74%;
             width: 100%;
 
         }
         #floating-panel {
             position: absolute;
-            top: 15%;
-            right: 0%;
+            top: 13%;
+            right: 2%;
             width: 20%;
             z-index: 5;
             background-color: #fff;
@@ -19,7 +19,7 @@
             border: 1px solid #999;
             text-align: center;
             font-family: 'Roboto','sans-serif';
-            line-height: 30px;
+            line-height: 20px;
             padding-left: 10px;
         }
         #floating-panel {
@@ -45,26 +45,13 @@
                             <input type="text" class="maps-search" id="search" placeholder="Search"/>
                         </form> -->
 
-                <!-- <div class="column">
-                    <div class="col-container">
-                        <h3>Added Doctors</h3>
-                        <div class="doctor-list">
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Dr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href="" ><h6>Dr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                            <div class="doctor-obj">
-                            <a href=""><h6>Dr. Example Name</h6></a>
-                            <p>Lorem ipsum dolor</div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
                 <div id="floating-panel">
                     <h4>Added Doctors</h4>
                         <!-- <button id="drop" onclick="drop()">Drop Markers</button> -->
+                        <div class="floating-panel" id="history">
+                          
+                      </div>
                     </div>
                 <div id="maps">
 
@@ -77,11 +64,15 @@
         {lat: -33.8651430, lng: 151.206},
         {lat: -33.8652, lng: 151.21},
         {lat: -33.79, lng: 151.2091},
-        {lat: -33.84, lng: 151.2098}
+        {lat: -33.84, lng: 151.2098},
+        {lat: -33.9, lng: 149.6},
+        {lat: -35.9, lng: 149.2}
+
     ];
-    var names = ['John Smith', 'Nota Relnam', 'Faik Naem', 'Doctor Tim'];
+    var names = ['John Smith', 'Nota Relnam', 'Faik Naem', 'Doctor Tim', 'Dr Bingo','wow'];
     var markers = [];
     var map;
+    var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('maps'), {
@@ -187,6 +178,7 @@
             position: point,
             map: map,
             animation: google.maps.Animation.DROP,
+            label: name.charAt(0),
             title: name
         };
 
@@ -194,6 +186,10 @@
 
         google.maps.event.addListener(marker, 'click', function() {
             window.alert(marker.getTitle());
+            messageIn(marker.getTitle());
+        });
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            //messageIn(marker.getTitle());
         });
     }
 
@@ -210,6 +206,20 @@
           markers[i].setMap(null);
         }
         markers = [];
+      }
+
+      function messageIn(message){
+        var messageDiv = document.createElement("div"); // create <div>
+        messageDiv.style.clear = 'both';
+        messageDiv.className = "inbox-message in";
+        // create text for message div
+        var messageP = document.createElement("p"); //create <p> tag
+
+        // append text to message div
+        messageDiv.appendChild(messageP); // add <p> to <div>
+        messageP.appendChild(document.createTextNode(message)); // insert text into <p>
+        //append message div to chat history
+        document.getElementById("history").appendChild(messageDiv);
       }
 
 
@@ -267,5 +277,5 @@
 
 </body>
 
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php /**PATH C:\Users\Anesu\OneDrive\UTS\Semester 1\Software Studio\E-Healthcare\SES_1A_Group_2_E-Healthcare\resources\views/dashboard.blade.php ENDPATH**/ ?>
