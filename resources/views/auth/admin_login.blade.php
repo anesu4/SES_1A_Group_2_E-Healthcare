@@ -4,7 +4,7 @@
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
-                <h4>Are you a doctor or patient?</h4>
+                <h4 class="text-center">Are you a doctor or patient?</h4>
                 <div class="button-box2">
                     <div id="btn3"></div>
                     <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
