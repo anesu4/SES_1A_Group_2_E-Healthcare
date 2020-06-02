@@ -22,7 +22,7 @@
         <div class="navbar">
             <a href="/">Home</a>
             <a href="/appointment">Appointments</a>
-            <a href="/messages">Messaging</a>
+            <a href="/messaging">Messaging</a>
             <div class="nav-dropdown">
                 @if (Route::has('register'))
                 <button class="drop-btn">Account <i class="fa fa-caret-down"></i></button>

@@ -14,18 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-// Index Home Page
-Route::get('/', function () {
-        return view('index');
-    });
+// // Index Home Page
+// Route::get('/', function () {
+//         return view('index');
+//     });
 
 // Doctor and Patient URL Pages
 //Route::get('/patient/{id}', function ($id) {return view('patient');});
-Route::get('/patient', function () {return view('patient');});
-// Route::get('/doctor', function () {return view('doctor');});
-Route::get('/messaging', function () {return view('messages');});
-Route::get('/patient-form', function () {return view('patient-form');});
-Route::get('/messaging-display', function () {return view('messaging-display');});
 
 //User Authentication
 // Route::get('/login', 'auth\LoginController@index')->name('login');
@@ -44,15 +39,25 @@ Route::get('/messaging-display', function () {return view('messaging-display');}
 // Route::get('/dashboard', 'DashboardController@index');
 // Route::get('/home', 'DashboardController@index')->name('home');
 
-// Route::group(['middleware' => ['web']], function () {
-//     Route::auth();
-
-
-// });
+Route::group(['middleware' => ['web']], function () {
+    Route::auth();
+    Route::get('/patient', function () {return view('patient');});
+// Route::get('/doctor', function () {return view('doctor');});
+    Route::get('/messaging', function () {return view('messages');});
+    Route::get('/patient-form', function () {return view('patient-form');});
+    Route::get('/messaging-display', function () {return view('messaging-display');});
+    Route::get('/form', function () {
+        return view('form');
+    });
+    Route::get('/appointment', function () {
+        return view('appointment');
+    });
+    Route::get('/home', 'HomeController@index')->name('home');
+});
 
 Route::get('/', 'DashboardController@index');
 
-// messaging
+// Messaging
 Route::group(['prefix' => 'messages'], function () {
     Route::get('/', ['as' => 'messaging', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messaging.create', 'uses' => 'MessagesController@create']);
@@ -66,19 +71,8 @@ Route::group(['prefix' => 'messages'], function () {
 //     return view('messages');
 // });
 
-Route::get('/form', function () {
-    return view('form');
-});
-
-
-Route::get('/appointment', function () {
-    return view('appointment');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 // Doctor Login Information
-
 Route::group(['prefix' => 'doctors'], function () {
     Route::get('/login', 'Auth\DoctorLoginController@showLoginForm')->name('doctors.login');
     Route::post('/login', 'Auth\DoctorLoginController@login')->name('doctors.login.submit');

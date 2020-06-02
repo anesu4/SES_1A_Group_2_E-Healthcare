@@ -1,23 +1,22 @@
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <html>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
-                <div>
-                    <h4>Are you a doctor or patient?</h4>
-                </div>
+                <h4>Are you a doctor or patient?</h4>
                 <div class="button-box2">
-                    <div id="btn2"></div>
-                    <button type="button" class="toggle-btn2" >Patient</button>
-                    <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
+                    <div id="btn3"></div>
+                    <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
+                    <button type="button" class="toggle-btn2" >Doctor</button>
                 </div>
                 <div class="button-box">
-                    <div id="btn"></div>                    
+                    <div id="btn"></div>
                     <button type="button" class="toggle-btn" onclick="login()"><?php echo e(__('Login')); ?></button>
                     <button type="button" class="toggle-btn" onclick="register()"><?php echo e(__('Register')); ?></button>
                 </div>
                 <div>
-                    <form id="login" class="input-group" method="POST" action="<?php echo e(route('login')); ?>">
+                    <form id="login" class="input-group" method="POST" action="<?php echo e(route('doctors.login.submit')); ?>">
                         <?php echo csrf_field(); ?>
                                 <i class = "fa fa-user" ></i>
 
@@ -81,8 +80,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <form id="register" class="input-group" method="POST" action="<?php echo e(route('register')); ?>">
                         <?php echo csrf_field(); ?>
-
-
+                        
                         <input id="name" type="name" class="input-field <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -151,7 +149,30 @@ unset($__errorArgs, $__bag); ?>
                         
                         <input id="password-confirm" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                         
-                        
+                        <input type="text" class="input-field <?php $__errorArgs = ['location'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="search-location" name="password" placeholder="Enter your location"/>
+                        <?php $__errorArgs = ['location'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong><?php echo e($message); ?></strong>
+                                    </span>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                        <div class="input-field" id="certFile-container"> 
+                            <p>Upload doctor certification</p>
+                            <input type="file" id="certFile">
+                        </div>
                         <button id="regBtn" type="submit" class="submit-btn">
                             <?php echo e(__('Register')); ?>
 
@@ -160,6 +181,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
             </div>
         </div>
+
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
@@ -169,10 +191,13 @@ unset($__errorArgs, $__bag); ?>
             var formBox = document.getElementById("form-box");
             //register-form input fields. *fyi some of this code is pretty dodgy and basic, but it works
             var toggleBtn2 = document.getElementById("btn2");
-            //var certFileIF = document.getElementById("certFile-container");
-            //var locationIF = document.getElementById("search-location");
+            var certFileIF = document.getElementById("certFile-container");
+            var locationIF = document.getElementById("search-location");
 
             // document.getElementById("logBtn").disabled = true;
+
+
+
             //boolean checks if doctor form is selected, false by default becacuse patient is selected
             var doctorForm = false;
 
@@ -182,12 +207,8 @@ unset($__errorArgs, $__bag); ?>
                 regForm.style.left="50px"
                 toggleBtn.style.left="94px"
                 //check if doctor is selected, without it the form will not extend to correct height
-                if(doctorForm){
-                    formBox.setAttribute("style","height:700px")
-                }
-                else {
-                    formBox.setAttribute("style","height:550px")
-                }
+                formBox.setAttribute("style","height:700px");
+
                 document.getElementById("logBtn").disabled = true;
                 document.getElementById("regBtn").disabled = false;
             }
@@ -200,25 +221,25 @@ unset($__errorArgs, $__bag); ?>
                 document.getElementById("regBtn").disabled = true;
                 document.getElementById("logBtn").disabled = false;
             }
-            // function patient(){
-            //     //toggle btn to highlight patient
-            //     toggleBtn2.style.left="0px"
-            //     //hide doctor input fields; reduces form height
-            //     locationIF.setAttribute("style","display:none");
-            //     certFileIF.setAttribute("style","display:none");
-            //     formBox.setAttribute("style","height:550px");
-            //     doctorForm = false;
-            // }
+            function patient(){
+                window.location.href = "/login";
+                //toggle btn to highlight patient
+                toggleBtn2.style.left="0px"
+                //hide doctor input fields; reduces form height
+                //locationIF.setAttribute("style","display:none");
+                //certFileIF.setAttribute("style","display:none");
+                //formBox.setAttribute("style","height:550px");
+                doctorForm = false;
+            }
             function doctor(){
-                window.location.href = "/doctors/login";
-                // //toggle btn to highlight doctor
-                //toggleBtn2.style.left="94px"
+                //toggle btn to highlight doctor
+                    // toggleBtn2.style.left="94px"
 
-                //show doctor input fields; extend form height
-                //locationIF.setAttribute("style","display:inline");
-                //certFileIF.setAttribute("style","display:inline-block");
-                //formBox.setAttribute("style","height:700px");
-                doctorForm = true;
+                    // //show doctor input fields; extend form height
+                    locationIF.setAttribute("style","display:inline");
+                    certFileIF.setAttribute("style","display:inline-block");
+                    // formBox.setAttribute("style","height:700px");
+                    // doctorForm = true;
             }
         </script>
     </body>
@@ -232,4 +253,4 @@ unset($__errorArgs, $__bag); ?>
         </script>
     </body>
 </html>
-<?php /**PATH D:\Git Repo\SES_1A_Group_2_E-Healthcare\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Git Repo\SES_1A_Group_2_E-Healthcare\resources\views/auth/admin_login.blade.php ENDPATH**/ ?>

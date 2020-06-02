@@ -71,7 +71,7 @@
 
 .form-box{
     width: 380px;
-    height: 300px;
+    height: 450px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -95,7 +95,7 @@
 .button-box2{
     width: 200px;
     height: 37px;
-    margin: 20px 42px;
+    margin: 20px 85px;
     position: relative;
     border-radius: 30px;
     border-style: solid;
@@ -147,7 +147,18 @@
     height: 90%;
     background: #136a8d;
     border-radius: 30px;
-    transition: .5s;
+    /* transition: .5s; */
+}
+
+#btn3{
+    margin: 2px;
+    top: 0;
+    left: 94px;
+    position: absolute;
+    width: 100px;
+    height: 90%;
+    background: #136a8d;
+    border-radius: 30px;
 }
 
 .form{
@@ -172,7 +183,7 @@
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    overflow: hidden;
+    /* overflow: hidden; */
     border-bottom: 1px solid #136a8d;
 }
 
@@ -196,7 +207,6 @@
 }
 
 .input-group{
-    top: 90px;
     position: absolute;
     width: 280px;
     transition: .5s;
@@ -211,11 +221,11 @@
 }
 
 #search-location{
-    display: none;
+    display: inline;
 }
 
 #certFile-container{
-    display: none;
+    display: inline;
     padding-top: 0px;
 }
 

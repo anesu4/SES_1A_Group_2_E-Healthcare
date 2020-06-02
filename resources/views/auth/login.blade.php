@@ -3,8 +3,16 @@
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
+                <div>
+                    <h4>Are you a doctor or patient?</h4>
+                </div>
+                <div class="button-box2">
+                    <div id="btn2"></div>
+                    <button type="button" class="toggle-btn2" {{--onclick="patient()"--}}>Patient</button>
+                    <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
+                </div>
                 <div class="button-box">
-                    <div id="btn"></div>
+                    <div id="btn"></div>                    
                     <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }}</button>
                     <button type="button" class="toggle-btn" onclick="register()">{{ __('Register') }}</button>
                 </div>
@@ -43,12 +51,6 @@
 
                     <form id="register" class="input-group" method="POST" action="{{ route('register') }}">
                         @csrf
-                        <p>Are you a doctor or patient?</p>
-                        <div class="button-box2">
-                            <div id="btn2"></div>
-                            <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
-                            <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
-                        </div>
 
 
                         <input id="name" type="name" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name">
@@ -77,16 +79,7 @@
                         {{-- <input type="password" class="input-field" placeholder="Password"/> --}}
                         <input id="password-confirm" type="password" class="input-field" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                         {{-- <input type="password" class="input-field" placeholder="Confirm password"/> --}}
-                        <input type="text" class="input-field @error('location') is-invalid @enderror" id="search-location" name="password" placeholder="Enter your location"/>
-                        @error('location')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                        <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
-                            <p>Upload doctor certification</p>
-                            <input type="file" id="certFile">
-                        </div>
+                        
                         <button id="regBtn" type="submit" class="submit-btn">
                             {{ __('Register') }}
                         </button>
@@ -94,7 +87,6 @@
                 </div>
             </div>
         </div>
-
         <script>
             //Acronyms IF = input field
             //variables to switch login & register objects
@@ -104,13 +96,10 @@
             var formBox = document.getElementById("form-box");
             //register-form input fields. *fyi some of this code is pretty dodgy and basic, but it works
             var toggleBtn2 = document.getElementById("btn2");
-            var certFileIF = document.getElementById("certFile-container");
-            var locationIF = document.getElementById("search-location");
+            //var certFileIF = document.getElementById("certFile-container");
+            //var locationIF = document.getElementById("search-location");
 
             // document.getElementById("logBtn").disabled = true;
-
-
-
             //boolean checks if doctor form is selected, false by default becacuse patient is selected
             var doctorForm = false;
 
@@ -134,28 +123,28 @@
                 loginForm.style.left="50px"
                 regForm.style.left="500px"
                 toggleBtn.style.left="0px"
-                formBox.setAttribute("style","height:300px");
+                formBox.setAttribute("style","height:450px");
                 document.getElementById("regBtn").disabled = true;
                 document.getElementById("logBtn").disabled = false;
             }
-            function patient(){
-                //toggle btn to highlight patient
-                toggleBtn2.style.left="0px"
-                //hide doctor input fields; reduces form height
-                locationIF.setAttribute("style","display:none");
-                certFileIF.setAttribute("style","display:none");
-                formBox.setAttribute("style","height:550px");
-                doctorForm = false;
-            }
+            // function patient(){
+            //     //toggle btn to highlight patient
+            //     toggleBtn2.style.left="0px"
+            //     //hide doctor input fields; reduces form height
+            //     locationIF.setAttribute("style","display:none");
+            //     certFileIF.setAttribute("style","display:none");
+            //     formBox.setAttribute("style","height:550px");
+            //     doctorForm = false;
+            // }
             function doctor(){
-
-                //toggle btn to highlight doctor
-                toggleBtn2.style.left="94px"
+                window.location.href = "/doctors/login";
+                // //toggle btn to highlight doctor
+                //toggleBtn2.style.left="94px"
 
                 //show doctor input fields; extend form height
-                locationIF.setAttribute("style","display:inline");
-                certFileIF.setAttribute("style","display:inline-block");
-                formBox.setAttribute("style","height:700px");
+                //locationIF.setAttribute("style","display:inline");
+                //certFileIF.setAttribute("style","display:inline-block");
+                //formBox.setAttribute("style","height:700px");
                 doctorForm = true;
             }
         </script>

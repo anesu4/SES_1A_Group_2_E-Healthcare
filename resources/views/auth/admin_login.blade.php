@@ -1,8 +1,15 @@
 @include('layouts.app')
+{{-- Patient Login --}}
 <html>
     <body>
         <div class="login-page">
             <div class="form-box" id="form-box">
+                <h4>Are you a doctor or patient?</h4>
+                <div class="button-box2">
+                    <div id="btn3"></div>
+                    <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
+                    <button type="button" class="toggle-btn2" {{--onclick="doctor()"--}}>Doctor</button>
+                </div>
                 <div class="button-box">
                     <div id="btn"></div>
                     <button type="button" class="toggle-btn" onclick="login()">{{ __('Login') }}</button>
@@ -43,14 +50,7 @@
 
                     <form id="register" class="input-group" method="POST" action="{{ route('register') }}">
                         @csrf
-                        <p>Are you a doctor or patient?</p>
-                        <div class="button-box2">
-                            <div id="btn2"></div>
-                            <button type="button" class="toggle-btn2" onclick="patient()">Patient</button>
-                            <button type="button" class="toggle-btn2" onclick="doctor()">Doctor</button>
-                        </div>
-
-
+                        
                         <input id="name" type="name" class="input-field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Name">
 
                         @error('name')
@@ -83,7 +83,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                        <div class="input-field" id="certFile-container"> <!-- yes, this id isnt great, if you wanna change it make sure to upadate css & JS -->
+                        <div class="input-field" id="certFile-container"> 
                             <p>Upload doctor certification</p>
                             <input type="file" id="certFile">
                         </div>
@@ -120,12 +120,8 @@
                 regForm.style.left="50px"
                 toggleBtn.style.left="94px"
                 //check if doctor is selected, without it the form will not extend to correct height
-                if(doctorForm){
-                    formBox.setAttribute("style","height:700px")
-                }
-                else {
-                    formBox.setAttribute("style","height:550px")
-                }
+                formBox.setAttribute("style","height:700px");
+
                 document.getElementById("logBtn").disabled = true;
                 document.getElementById("regBtn").disabled = false;
             }
@@ -134,29 +130,29 @@
                 loginForm.style.left="50px"
                 regForm.style.left="500px"
                 toggleBtn.style.left="0px"
-                formBox.setAttribute("style","height:300px");
+                formBox.setAttribute("style","height:450px");
                 document.getElementById("regBtn").disabled = true;
                 document.getElementById("logBtn").disabled = false;
             }
             function patient(){
+                window.location.href = "/login";
                 //toggle btn to highlight patient
                 toggleBtn2.style.left="0px"
                 //hide doctor input fields; reduces form height
-                locationIF.setAttribute("style","display:none");
-                certFileIF.setAttribute("style","display:none");
-                formBox.setAttribute("style","height:550px");
+                //locationIF.setAttribute("style","display:none");
+                //certFileIF.setAttribute("style","display:none");
+                //formBox.setAttribute("style","height:550px");
                 doctorForm = false;
             }
             function doctor(){
-
                 //toggle btn to highlight doctor
-                toggleBtn2.style.left="94px"
+                    // toggleBtn2.style.left="94px"
 
-                //show doctor input fields; extend form height
-                locationIF.setAttribute("style","display:inline");
-                certFileIF.setAttribute("style","display:inline-block");
-                formBox.setAttribute("style","height:700px");
-                doctorForm = true;
+                    // //show doctor input fields; extend form height
+                    locationIF.setAttribute("style","display:inline");
+                    certFileIF.setAttribute("style","display:inline-block");
+                    // formBox.setAttribute("style","height:700px");
+                    // doctorForm = true;
             }
         </script>
     </body>

@@ -30,7 +30,7 @@
                                 </button>
                                 <div class="upload-file-container">
                                     <span id="fileName"></span>
-                                    <input class="upload-file" accept="image/png,.pdf,image/jpeg" id="sendFileBtn" type="file"> 
+                                    <input class="upload-file" accept="image/png,.pdf,image/jpeg,image/gif" id="sendFileBtn" type="file"> 
                                     <span class="glyphicon glyphicon-picture"></span>
                                 </div>
                                 <button class="btn btn-hide" onclick="deleteFile()" title="delete file" id="removeFileBtn">
